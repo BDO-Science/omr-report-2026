@@ -1,0 +1,3191 @@
+
+   
+      
+         uid=EDI,o=EDI,dc=edirepository,dc=org
+         all
+      
+      
+         https://orcid.org/0000-0003-0219-3902
+         all
+      
+      
+         public
+         read
+      
+   
+   
+      doi:10.6073/pasta/bdf134ce254e579b2e4ff1f4d3d459a5Interagency Ecological Program San Francisco Estuary Larval Entrainment Study (LES)
+      
+         Morgan Gilbert
+         California Department of Fish and Wildlife
+         Environmental Scientist
+         			2109 Arch Airport Rd, Stockton CA 95206
+			Stockton, California 95206  United States
+         2092343486
+         morgan.gilbert@wildlife.ca.gov
+         0000-0003-0219-3902
+      
+      
+         Timothy Malinich
+         California Department of Fish and Wildlife
+         Senior Environmental Scientist (supervisory)
+         			2109 Arch Airport Rd, Stockton CA 95206
+			,    United States
+         2092343486
+         timothy.malinich@wildlife.ca.gov
+         0000-0002-1909-8875
+      
+      
+         Kyle Griffiths
+         Environmental Scientist
+         			,    United States
+         Walter.Griffiths@Wildlife.ca.gov
+         0009-0000-5664-5308
+      
+      
+         Virginia Afentoulis
+         Senior Environmental Scientist (specialist)
+         			,    United States
+         virginia.afentoulis@wildlife.ca.gov
+         0000-0002-1005-7903
+      
+      
+         Morgan Gilbert
+         California Department of Fish and Wildlife
+         Environmental Scientist
+         			2109 Arch Airport Rd, Stockton CA 95206
+			suite 100
+			Stockton, California 95206  United States
+         2092343486
+         morgan.gilbert@wildlife.ca.gov
+         0000-0003-0219-3902
+      
+      
+         Tariq Celeste
+         Senior Laboratory Assistant
+         Tariq.Celeste@Wildlife.ca.gov
+         0009-0007-8131-8115
+         Senior Laboratory Assistant for LES, identified larval fish
+      
+      
+         Jorge Chagoya
+         Senior Laboratory Assistant
+         jorge.chagoya@wildlife.ca.gov
+         0009-0009-5608-0218
+         Identified larval fish.
+      
+      
+         Elizabeth Lorz
+         Senior Laboratory Assistant
+         elizabeth.lorz@wildlife.ca.gov
+         0009-0009-2641-6526
+         Identified larval fish.
+      
+      2025-07-01
+      
+         Fish entrainment into California's State Water Project (SWP) and Central Valley Project (CVP) has been a source of mortality for native osmerid species, including Delta Smelt (Hypomesus transpacificus) and Longfin Smelt (Spirinchus thaleichthys). While entrained adult and juvenile fishes are collected, identified and enumerated, the facilities design does not allow for a quantifiable estimate of larval fishes being entrained. This knowledge gap makes it difficult for managers to make scientifically informed decisions regarding the endangered Longfin & Delta Smelt. 
+         The Larval Entrainment Study (LES) aims to address this gap by providing a high-resolution dataset and insights into the variable abundances of Smelt at risk of entrainment, the community composition surrounding them, and associated water quality data. Our study design utilizes a variety of gear types and maximizes replicates to improve the understanding of larval Smelt abundances within the southern reach of the Sacramento and San Joaquin River Delta, the zone of entrainment for the SWP and CVP. 
+         Sampling began in 2022 using 10-minute stepped oblique tows of a Smelt Larval Survey (SLS) sled mounted with a 500 μm net. Tows were conducted in West Canal, outside Clifton Court Forebay (CCF), where the risk of entrainment is highest. Sampling was conducted five days a week in 2022 and three days a week in the following years. . Beginning in mid-January 2023, a 940 μm mesh net with the same dimensions as the SLS net was added, with sampling alternating between the two. This provided an intermediate gear between SLS (500 μm) and 20mm (1600 μm) nets.  
+         In 2024 we expanded to sample a transect of sites within the Old and Middle River (OMR) corridor. This provides broader spatial resolution and improves our ability to detect Osmerids within the South Delta. Sampling alternated between a high priority day (with intensive sampling in the lower San Joaquin River, SLS stations 809 & 812) and a longer transect day that ran the length of the OMR corridor( at SLS stations 809, 812, 902, 915 & 918). We also began to sample using a bongo sled, which allows two nets to sample side by side. 
+         This data also includes our special studies; a day/night comparison conducted in 2022, a gear comparison in 2023, and a second day/night comparison study in 2024.
+      
+      
+         Longfin Smelt
+         LES
+         IEP
+         CDFW
+         Interagency Ecological Program for the San Francisco Bay Delta Estuary
+      
+      
+         estuaries
+         endangered species
+         fishes
+         tides
+         turbidity
+         temperature
+         larvae
+         population and community properties
+         LTER Controlled Vocabulary
+      
+      
+         This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.
+      
+      https://doi.org/10.6073/pasta/bdf134ce254e579b2e4ff1f4d3d459a5
+         
+            Sampling in 2022 and 2023 was conducted in West Canal, adjacent to Clifton Court Forebay. Conditions during 2023 resulted in some sampling being conducted above the CA-4 Old River Bridge.
+            
+               -121.58639948211423
+               -121.54352444286177
+               37.89825144148645
+               37.82670305362522
+            
+         
+         
+            Sampling in 2024 encompassed a broader region in the Old and Middle River corridor, including Smelt Larval Survey stations 809, 812, 902, 915, 918.
+            
+               -121.69825061059292
+               -121.51003147531748
+               38.10653111546934
+               37.86618919769822
+            
+         
+         
+            
+               
+                  2022-01-03
+               
+               
+                  2022-05-12
+               
+            
+         
+         
+            
+               
+                  2023-01-17
+               
+               
+                  2023-04-28
+               
+            
+         
+         
+            
+               
+                  2024-01-02
+               
+               
+                  2024-03-29
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Family
+                                    Moronidae
+                                    temperate basses
+                                    42148
+                                    
+                                       Genus
+                                       Morone
+                                       34815
+                                       
+                                          Species
+                                          Morone saxatilis
+                                          striped sea-bass
+                                          34816
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Gobiiformes
+                                    gobies and sleepers
+                                    1489878
+                                    
+                                       Suborder
+                                       Gobioidei
+                                       8219
+                                       
+                                          Family
+                                          Gobiidae
+                                          gobies
+                                          8220
+                                          
+                                             Subfamily
+                                             Gobionellinae
+                                             497220
+                                             
+                                                Genus
+                                                Clevelandia
+                                                185731
+                                                
+                                                   Species
+                                                   Clevelandia ios
+                                                   arrow goby
+                                                   185732
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Perciformes
+                                    perches and others
+                                    8111
+                                    
+                                       Suborder
+                                       Percoidei
+                                       8112
+                                       
+                                          Family
+                                          Percidae
+                                          perches
+                                          8165
+                                          
+                                             Subfamily
+                                             Etheostomatinae
+                                             698016
+                                             
+                                                Genus
+                                                Percina
+                                                54316
+                                                
+                                                   Subgenus
+                                                   Percina
+                                                   1070158
+                                                   
+                                                      Species
+                                                      Percina macrolepida
+                                                      bigscale logperch
+                                                      163822
+                                                   
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Centrarchiformes
+                                    sunfishes and others
+                                    1489940
+                                    
+                                       Superfamily
+                                       Centrarchoidei
+                                       1545897
+                                       
+                                          Family
+                                          Centrarchidae
+                                          sunfishes
+                                          8180
+                                          
+                                             Genus
+                                             Lepomis
+                                             13105
+                                             
+                                                Species
+                                                Lepomis macrochirus
+                                                bluegill
+                                                13106
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Phylum
+               Chordata
+               chordates
+               7711
+               
+                  Subphylum
+                  Craniata
+                  89593
+                  
+                     Superclass
+                     Actinopterygii
+                     ray-finned fishes
+                     7898
+                     
+                        Class
+                        Actinopteri
+                        186623
+                        
+                           Subclass
+                           Neopterygii
+                           41665
+                           
+                              Infraclass
+                              Teleostei
+                              teleost fishes
+                              32443
+                              
+                                 Superorder
+                                 Characiphysae
+                                 186628
+                                 
+                                    Order
+                                    Siluriformes
+                                    catfishes
+                                    7995
+                                    
+                                       Species
+                                       catfish
+                                       71179
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Centrarchiformes
+                                    sunfishes and others
+                                    1489940
+                                    
+                                       Superfamily
+                                       Centrarchoidei
+                                       1545897
+                                       
+                                          Family
+                                          Centrarchidae
+                                          sunfishes
+                                          8180
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Phylum
+               Chordata
+               chordates
+               7711
+               
+                  Subphylum
+                  Craniata
+                  89593
+                  
+                     Superclass
+                     Actinopterygii
+                     ray-finned fishes
+                     7898
+                     
+                        Class
+                        Actinopteri
+                        186623
+                        
+                           Subclass
+                           Neopterygii
+                           41665
+                           
+                              Infraclass
+                              Teleostei
+                              teleost fishes
+                              32443
+                              
+                                 Superorder
+                                 Cypriniphysae
+                                 186627
+                                 
+                                    Order
+                                    Cypriniformes
+                                    carps and others
+                                    7952
+                                    
+                                       Suborder
+                                       Cyprinoidei
+                                       30727
+                                       
+                                          Family
+                                          Cyprinidae
+                                          7953
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Order
+               Gobiiformes
+               gobies and sleepers
+               1489878
+               
+                  Suborder
+                  Gobioidei
+                  8219
+                  
+                     Family
+                     Gobiidae
+                     gobies
+                     8220
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Superorder
+                                    Atherinomorphae
+                                    1489913
+                                    
+                                       Order
+                                       Atheriniformes
+                                       8075
+                                       
+                                          Family
+                                          Atherinopsidae
+                                          Old World silversides
+                                          461499
+                                          
+                                             Subfamily
+                                             Menidiinae
+                                             238742
+                                             
+                                                Genus
+                                                Menidia
+                                                238743
+                                                
+                                                   Species
+                                                   Menidia beryllina
+                                                   inland silverside
+                                                   269057
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Osmeriformes
+                                    freshwater smelts and others
+                                    41711
+                                    
+                                       Family
+                                       Osmeridae
+                                       smelts
+                                       8012
+                                       
+                                          Subfamily
+                                          Osmerinae
+                                          182230
+                                          
+                                             Genus
+                                             Spirinchus
+                                             136039
+                                             
+                                                Species
+                                                Spirinchus thaleichthys
+                                                longfin smelt
+                                                260508
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Superorder
+                                    Atherinomorphae
+                                    1489913
+                                    
+                                       Order
+                                       Cyprinodontiformes
+                                       killifishes and others
+                                       28738
+                                       
+                                          Suborder
+                                          Cyprinodontoidei
+                                          8087
+                                          
+                                             Family
+                                             Poeciliidae
+                                             livebearers
+                                             8079
+                                             
+                                                Subfamily
+                                                Poeciliinae
+                                                586240
+                                                
+                                                   Genus
+                                                   Gambusia
+                                                   33527
+                                                   
+                                                      Species
+                                                      Gambusia affinis
+                                                      western mosquitofish
+                                                      33528
+                                                   
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Phylum
+               Chordata
+               chordates
+               7711
+               
+                  Subphylum
+                  Craniata
+                  89593
+                  
+                     Superclass
+                     Actinopterygii
+                     ray-finned fishes
+                     7898
+                     
+                        Class
+                        Actinopteri
+                        186623
+                        
+                           Subclass
+                           Neopterygii
+                           41665
+                           
+                              Infraclass
+                              Teleostei
+                              teleost fishes
+                              32443
+                              
+                                 Order
+                                 Clupeiformes
+                                 herrings and anchovies
+                                 32446
+                                 
+                                    Suborder
+                                    Clupeoidei
+                                    1489460
+                                    
+                                       Family
+                                       Clupeidae
+                                       herrings
+                                       55118
+                                       
+                                          Subfamily
+                                          Clupeinae
+                                          7948
+                                          
+                                             Genus
+                                             Clupea
+                                             7949
+                                             
+                                                Species
+                                                Clupea pallasii
+                                                Pacific herring
+                                                30724
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Species
+               Entosphenus tridentatus
+               Pacific lamprey
+               245074
+            
+         
+         
+            
+               Order
+               Perciformes
+               perches and others
+               8111
+               
+                  Suborder
+                  Cottioidei
+                  8100
+                  
+                     Infraorder
+                     Cottales
+                     1490021
+                     
+                        Family
+                        Cottidae
+                        sculpins
+                        8092
+                        
+                           Genus
+                           Leptocottus
+                           214924
+                           
+                              Species
+                              Leptocottus armatus
+                              Pacific staghorn sculpin
+                              214925
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Perciformes
+                                    perches and others
+                                    8111
+                                    
+                                       Suborder
+                                       Cottioidei
+                                       8100
+                                       
+                                          Infraorder
+                                          Cottales
+                                          1490021
+                                          
+                                             Family
+                                             Cottidae
+                                             sculpins
+                                             8092
+                                             
+                                                Genus
+                                                Cottus
+                                                8098
+                                                
+                                                   Species
+                                                   Cottus asper
+                                                   prickly sculpin
+                                                   214916
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Superorder
+                                    Atherinomorphae
+                                    1489913
+                                    
+                                       Order
+                                       Cyprinodontiformes
+                                       killifishes and others
+                                       28738
+                                       
+                                          Suborder
+                                          Cyprinodontoidei
+                                          8087
+                                          
+                                             Family
+                                             Fundulidae
+                                             topminnows
+                                             28756
+                                             
+                                                Genus
+                                                Lucania
+                                                232976
+                                                
+                                                   Species
+                                                   Lucania parva
+                                                   rainwater killifish
+                                                   722640
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Superorder
+                                    Cypriniphysae
+                                    186627
+                                    
+                                       Order
+                                       Cypriniformes
+                                       carps and others
+                                       7952
+                                       
+                                          Suborder
+                                          Catostomoidei
+                                          2509193
+                                          
+                                             Family
+                                             Catostomidae
+                                             suckers
+                                             7968
+                                             
+                                                Genus
+                                                Catostomus
+                                                7969
+                                                
+                                                   Species
+                                                   Catostomus occidentalis
+                                                   Sacramento sucker
+                                                   196749
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Order
+               Gobiiformes
+               gobies and sleepers
+               1489878
+               
+                  Suborder
+                  Gobioidei
+                  8219
+                  
+                     Family
+                     Gobiidae
+                     gobies
+                     8220
+                     
+                        Subfamily
+                        Gobionellinae
+                        497220
+                        
+                           Genus
+                           Tridentiger
+                           55552
+                           
+                              Species
+                              Tridentiger bifasciatus
+                              Shimofuri goby
+                              55553
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Clupeiformes
+                                    herrings and anchovies
+                                    32446
+                                    
+                                       Suborder
+                                       Clupeoidei
+                                       1489460
+                                       
+                                          Family
+                                          Clupeidae
+                                          herrings
+                                          55118
+                                          
+                                             Subfamily
+                                             Dorosomatinae
+                                             gizzard shads
+                                             316161
+                                             
+                                                Genus
+                                                Dorosoma
+                                                224712
+                                                
+                                                   Species
+                                                   Dorosoma petenense
+                                                   threadfin shad
+                                                   224713
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Order
+               Osmeriformes
+               freshwater smelts and others
+               41711
+               
+                  Family
+                  Osmeridae
+                  smelts
+                  8012
+                  
+                     Subfamily
+                     Hypomesinae
+                     182238
+                     
+                        Genus
+                        Hypomesus
+                        137519
+                        
+                           Species
+                           Hypomesus nipponensis
+                           Japanese smelt
+                           182223
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Superclass
+               Actinopterygii
+               ray-finned fishes
+               7898
+               
+                  Class
+                  Actinopteri
+                  186623
+                  
+                     Subclass
+                     Neopterygii
+                     41665
+                     
+                        Infraclass
+                        Teleostei
+                        teleost fishes
+                        32443
+                        
+                           Superorder
+                           Characiphysae
+                           186628
+                           
+                              Order
+                              Siluriformes
+                              catfishes
+                              7995
+                              
+                                 Suborder
+                                 Siluroidei
+                                 1489793
+                                 
+                                    Family
+                                    Ictaluridae
+                                    bullhead catfishes
+                                    7996
+                                    
+                                       Genus
+                                       Ameiurus
+                                       50384
+                                       
+                                          Species
+                                          Ameiurus catus
+                                          white catfish
+                                          66911
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+         
+            
+               Kingdom
+               Metazoa
+               metazoans
+               33208
+               
+                  Phylum
+                  Chordata
+                  chordates
+                  7711
+                  
+                     Subphylum
+                     Craniata
+                     89593
+                     
+                        Superclass
+                        Actinopterygii
+                        ray-finned fishes
+                        7898
+                        
+                           Class
+                           Actinopteri
+                           186623
+                           
+                              Subclass
+                              Neopterygii
+                              41665
+                              
+                                 Infraclass
+                                 Teleostei
+                                 teleost fishes
+                                 32443
+                                 
+                                    Order
+                                    Gobiiformes
+                                    gobies and sleepers
+                                    1489878
+                                    
+                                       Suborder
+                                       Gobioidei
+                                       8219
+                                       
+                                          Family
+                                          Gobiidae
+                                          gobies
+                                          8220
+                                          
+                                             Subfamily
+                                             Gobionellinae
+                                             497220
+                                             
+                                                Genus
+                                                Acanthogobius
+                                                86196
+                                                
+                                                   Species
+                                                   Acanthogobius flavimanus
+                                                   yellowfin goby
+                                                   86203
+                                                
+                                             
+                                          
+                                       
+                                    
+                                 
+                              
+                           
+                        
+                     
+                  
+               
+            
+         
+      
+      
+         LES data is reviewed and undergoes quality control prior to updates to EDI.LES data is reviewed and undergoes quality control prior to updates to EDI. 
+         
+         annually
+      
+      
+         Morgan Gilbert
+         Environmental Scientist
+         morgan.gilbert@wildlife.ca.gov
+         0000-0003-0219-3902
+      
+      
+         Timothy Malinich
+         California Department of Fish and Wildlife
+         			2109 Arch Airport Rd, Stockton CA 95206
+			,    United States
+         2092343486
+         timothy.malinich@wildlife.ca.gov
+         0000-0002-1909-8875
+      
+      
+         Environmental Data Initiative
+         info@edirepository.org
+         https://edirepository.org
+         0330j0z60
+      
+      Environmental Data Initiative
+      
+         
+            
+               In 2022, samples were collected adjacent to Clifton Court Forebay in West Canal. Fifteen stepped oblique tows with a ten-minute duration were conducted five days a week. These tows made use of the SLS tow schedule. According to the depth present at the sampling site, a specific length of line was deployed and then drawn in at regular intervals. For example, a typical depth of 30' saw the 125' of line being deployed and drawn in at 8:56, 7:49, 6:42, 5:35, 4:28, 3:21, 2:14, and 1:07. Reducing the line length draws the sled upward, ensuring that as much of the water column as possible is sampled.
+               
+               Sampling was otherwise based on Smelt Larval Survey (SLS) techniques, as excerpted below;
+               
+               "Environmental conditions data, including tide, surface turbidity, surface and bottom conductivity, surface water temperature, and Secchi depth are collected at each station at the time of sampling. A General Oceanics (GO) flowmeter is mounted across the net's mouth to estimate the water volume filtered. At the end of each tow, net contents are washed into a cod-end jar attached at the end of the net. Large debris and adult fish (greater or equal 50 mm) are removed if positively identified. If salmonids are caught, lengths and presence of adipose fin are immediately recorded, and the fish are released gently and alive. The remaining contents in the jar are preserved in 10% formalin for identification in the lab. The distinctively labeled sample jars are taken to the laboratory at the California Department of Fish and Wildlife's Bay Delta Region, Stockton. The complete contents are sorted, and any larval fish present are identified and counted. All fish are identified to species or lowest possible taxon. The first 50 fish of each species from each tow are randomly selected and measured (FL) to the nearest millimeter and the rest enumerated. All Delta Smelt are measured regardless of catch size. All Longfin Smelt are measured unless there is an excessive amount ( greater than 200) then only 100 are measured and the rest are plus counted. Only non-zero catch of species caught are recorded." (Mora et al. 2023)
+               
+               Tows were grouped into transects. Groups of five tows are identified as A, B, or C. At the end of each transect, the field lead would assess whether conditions would make it likely for sampling to leave the target area. Sampling would then either reset to original starting location adjacent to the facility gates or continue sampling as normal.
+               
+               References:
+               Interagency Ecological Program (IEP), V.G. Mora, J. Oceguera Zavala, and J.A. Jimenez. 2023. Interagency Ecological Program San Francisco Estuary Smelt Larva Survey 2009 – 2023 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/276607dd985336d9796f0625b323b79c (Accessed 2024-08-23).
+            
+            In 2022, LES used a standard SLS sled and net, described as "a cone shaped net 3.35 meters in length with a mouth area of 0.37 m2. The net itself is composed of 505 microm NitexR and is mounted on a fixed metal tube frame with skis. [...] The net is connected to the frame by a canvas mouth." (Mora et al. 2023) A YSI-ProDSS was used to collect surface temperature (C), surface & bottom conductivity (microS/cm), and turbidity (FNU). A secchi disk mounted to a 2 meter pole was used to collect secchi depth in centimeters. For consistency, secchi depth was always collected by the same person on each sampling day, in the shade and without sunglasses. Flowmeter values were checked after each tow to ensure proper performance consistent with typical conditions. Units returning unusual values were replaced. References; Interagency Ecological Program (IEP), V.G. Mora, J. Oceguera Zavala, and J.A. Jimenez. 2023. Interagency Ecological Program San Francisco Estuary Smelt Larva Survey 2009 – 2023 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/276607dd985336d9796f0625b323b79c (Accessed 2024-08-23).
+         
+         
+            
+               In 2023, samples were collected adjacent to Clifton Court Forebay in West Canal. From 1/3/2023 to 1/24/2023, the same procedures used in 2022 were utilized, with the exception that sampling was conducted three days a week, generally on Monday, Wednesday, and Friday.. These tows made use of the SLS tow schedule. According to the depth present at the sampling site, a specific length of line was deployed and then drawn in at regular intervals. For example, a typical depth of 30' saw the 125' of line being deployed and drawn in at 8:56, 7:49, 6:42, 5:35, 4:28, 3:21, 2:14, and 1:07. Reducing the line length draws the sled upward, ensuring that as much of the water column as possible is sampled.
+               
+               Beginning on 1/25/2023, sampling included a new 940 micron net with identical dimensions to the standard SLS 500 micron net. Crews then sampled by alternating between the sleds, continuing to use the SLS methods outlined above. These methods were used through the end of the 2023 season. 
+               
+               References:
+               Interagency Ecological Program (IEP), V.G. Mora, J. Oceguera Zavala, and J.A. Jimenez. 2023. Interagency Ecological Program San Francisco Estuary Smelt Larva Survey 2009 – 2023 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/276607dd985336d9796f0625b323b79c (Accessed 2024-08-23).
+            
+            In 2023, LES used a standard SLS sled and net, described as "a cone shaped net 3.35 meters in length with a mouth area of 0.37 m2. The net itself is composed of 505 micron NitexR and is mounted on a fixed metal tube frame with skis. [...] The net is connected to the frame by a canvas mouth." (Mora et al. 2023). In addition, a 940 micron net of the same dimensions and materials was mounted to a second sled. Sampling alternated between these two gears. A YSI-ProDSS was used to collect surface temperature (C), surface & bottom conductivity (microS/cm), and turbidity (FNU). A secchi disk mounted to a 2 meter pole was used to collect secchi depth in centimeters. For consistency, secchi depth was always collected by the same person on each sampling day, in the shade and without sunglasses. Flowmeter values were checked after each tow to ensure proper performance consistent with typical conditions. Units returning unusual values were replaced. References: Interagency Ecological Program (IEP), V.G. Mora, J. Oceguera Zavala, and J.A. Jimenez. 2023. Interagency Ecological Program San Francisco Estuary Smelt Larva Survey 2009 – 2023 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/276607dd985336d9796f0625b323b79c (Accessed 2024-08-23).
+         
+         
+            
+               In 2024, samples were initially collected adjacent to Clifton Court Forebay in West Canal. From 1/2/2024 to 1/19/2024, the same procedures used in 2022 were utilized, with the exception that sampling was conducted three days a week, generally on Monday, Wednesday, and Friday.
+               
+               Beginning on 1/19/2024, sampling shifted to encompass a broader geographical region, including a series of Smelt Larval Survey (SLS) stations; 809, 812, 902, 915, and 918. These stations were selected with the intention of developing a broad view of the area at risk of entrainment, beginning at the upper limits where entrainment might occur. On priority days (generally Monday & Wednesday), stations 809 and 812 were sampled intensively with ten tows each of the 500 micron and 940 micron nets. On the final day of the week (usually Friday) sampling was conducted at all five stations (a 'transect' day), with four tows (two of each net) conducted at each site.
+               
+               On 2/5 the 940 micron net was lost during sampling - no replacement was available, and so sampling resumed using the 500 micron net only. 
+               
+               Beginning on 2/12/2024, LES sampling shifted to using a bongo sled design. This was the result of extensive work designing and testing a new frame design. Two five hundred micron nets were mounted to the frame side by side. Priority sampling then shifted to sample two stations (809 and 812) with six tows each and transect stations (all five stations, once a week) with two tows each. 
+               
+               A special study was conducted to examine differences in abundance between diel periods for Longfin Smelt. This comprised two sets of paired night-day sampling in March and April, with sampling occurring at 809 and 812. 
+               
+               References:
+               Interagency Ecological Program (IEP), V.G. Mora, J. Oceguera Zavala, and J.A. Jimenez. 2023. Interagency Ecological Program San Francisco Estuary Smelt Larva Survey 2009 – 2023 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/276607dd985336d9796f0625b323b79c (Accessed 2024-08-23).
+            
+            In 2024, LES used a standard SLS sled and net, described as "a cone shaped net 3.35 meters in length with a mouth area of 0.37 m2. The net itself is composed of 505 micron NitexR and is mounted on a fixed metal tube frame with skis. [...] The net is connected to the frame by a canvas mouth." (Mora et al. 2023). In addition, a 940 micron net of the same dimensions and materials was mounted to a second sled. Sampling alternated between these two gears. The bongo frame made use of two hoops of the same dimensions mounted to a sled. Each hoop had a 500 micron net of the same dimensions as those used previously. A YSI-ProDSS was used to collect surface temperature (C), surface & bottom conductivity (microS/cm), and turbidity (FNU). A secchi disk mounted to a 2 meter pole was used to collect secchi depth in centimeters. For consistency, secchi depth was always collected by the same person on each sampling day, in the shade and without sunglasses. Flowmeter values were checked after each tow to ensure proper performance consistent with typical conditions. Units returning unusual values were replaced. References: Interagency Ecological Program (IEP), V.G. Mora, J. Oceguera Zavala, and J.A. Jimenez. 2023. Interagency Ecological Program San Francisco Estuary Smelt Larva Survey 2009 – 2023 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/276607dd985336d9796f0625b323b79c (Accessed 2024-08-23).
+         
+      
+      
+         The Larval Entrainment Study
+         
+            Morgan Gilbert
+            California Department of Fish and Wildlife
+            Environmental Scientist
+            			642 Old Course Court
+			Valley Springs, CA 95242  United States
+            5034671768
+            morgan.gilbert@wildlife.ca.gov
+            0000-0003-0219-3902
+            Project lead
+         
+         
+            Timothy Malinich
+            California Department of Fish and Wildlife
+            			2109 Arch Airport Rd, Stockton CA 95206
+			,    United States
+            2092343486
+            timothy.malinich@wildlife.ca.gov
+            0000-0002-1909-8875
+            Project supervisor
+         
+         
+            Fish entrainment into California's State Water Project (SWP) and Central Valley Project (CVP) has been a source of mortality for native osmerid species, including Delta Smelt (Hypomesus transpacificus) and Longfin Smelt (Spirinchus thaleichthys). While entrained adult and juvenile fishes are collected, identified and enumerated, the facilities design does not allow for a quantifiable estimate of larval fishes being entrained. This knowledge gap makes it difficult for managers to make scientifically informed decisions regarding the endangered Longfin & Delta Smelt. 
+            The Larval Entrainment Study (LES) aims to address this gap by providing a high-resolution dataset and insights into the variable abundances of Smelt at risk of entrainment, the community composition surrounding them, and associated water quality data. Our study design utilizes a variety of gear types and maximizes replicates to improve the understanding of larval Smelt abundances within the southern reach of the Sacramento and San Joaquin River Delta, the zone of entrainment for the SWP and CVP. 
+            Sampling began in 2022 using 10-minute stepped oblique tows of a Smelt Larval Survey (SLS) sled mounted with a 500 μm net. Tows were conducted in West Canal, outside Clifton Court Forebay (CCF), where the risk of entrainment is highest. Sampling was conducted five days a week in 2022 and three days a week in the following years. . Beginning in mid-January 2023, a 940 μm mesh net with the same dimensions as the SLS net was added, with sampling alternating between the two. This provided an intermediate gear between SLS (500 μm) and 20mm (1600 μm) nets.  
+            In 2024 we expanded to sample a transect of sites within the Old and Middle River (OMR) corridor. This provides broader spatial resolution and improves our ability to detect Osmerids within the South Delta. Sampling alternated between a high priority day (with intensive sampling in the lower San Joaquin River, SLS stations 809 & 812) and a longer transect day that ran the length of the OMR corridor( at SLS stations 809, 812, 902, 915 & 918). We also began to sample using a bongo sled, which allows two nets to sample side by side. 
+            This data also includes our special studies; a day/night comparison conducted in 2022, a gear comparison in 2023, and a second day/night comparison study in 2024.
+         
+      
+      
+         LES_combined_data
+         A combined table of all LES data. Each line represents a specific length of a particular taxa collected during one tow. This table was created using an R script (LES_data_formatting.R, included in this release) and has been reviewed for data quality. Data was cleaned by formatting dates, removing extraneous columns, and combining all four tables into a single CSV file.
+         
+            LES_combined_data.csv
+            1525665
+            59c9e2c395f3fe52badd127b4bdfc376
+            
+               
+                  1
+                  \r\n
+                  column
+                  
+                     ,
+                     "
+                  
+               
+            
+            
+               
+                  https://pasta.lternet.edu/package/data/eml/edi/1770/2/a7dfe83a8b76b6add1d05cd0b054bc5a
+               
+            
+         
+         
+            
+               ID_short
+               ID
+               A human-readable ID to conveniently identify individual samples, in the format Date-Station-Tow. This ID is used in the combined and waterinfo tables, and also referenced on catch, length, and towinfo.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               ID_long
+               ID_long
+               A human-readable ID to conveniently identify individual samples, in the format Date-Station-Tow-Sample Special Study. This ID is added to the towinfo, catch, and length tables. Because WaterInfo has each row representing multiple samples, it uses the shorter field ID_short.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               WaterInfoID
+               WaterInfoID
+               A unique identifier for each sample collection found in the WaterInfo table, representing a single tow and its associated data
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               TowInfoID
+               TowInfoID
+               A unique identifier for each sample collection found in the TowInfo table, representing a single sample and its associated data
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               CatchID
+               CatchID
+               A unique identifier for each taxa found in the Catch table, representing a single species from a particular sample and its related information.
+               float
+               
+                  
+                     
+                        Index
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  No Catch
+               
+            
+            
+               Date
+               Date
+               Date in YMD format.
+               dateTime
+               
+                  
+                     YYYY-MM-DD
+                     
+                  
+               
+            
+            
+               Time
+               Time
+               Time in PST that a tow began, in 24 hour format.
+               dateTime
+               
+                  
+                     hh:mm
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Survey
+               Survey
+               Julian week - number of weeks since Jan 1.
+               integer
+               
+                  
+                     
+                        Week
+                     
+                     
+                        integer
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Station
+               Station
+               In 2022 and 2023, station was used as an index of the transect and tow number. The first digit is the transect (1-3), and the remaining digits are the tow number. Later datasets use this column to record the SLS sampling station where data was collected.
+               float
+               
+                  
+                     
+                        ID
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               Tow
+               Tow
+               Sequential order of Tows collected. In 2022, Tow referred to a group of 5 tows and were lettered A, B & C. This column is where the individual tow occurred within that group.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               Sample
+               Sample
+               The sequential order of samples collected at a station. Each sample was collected from an individual net and stored in seperate jars. For bongo sampling, two samples are associated with each tow. Generally, tow 1 is associated with samples 1 & 2, tow 2 with 3 & 4, etc.
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               GearType
+               GearType
+               Describes the mesh of net used and the type of sled it was mounted to.
+               string
+               
+                  
+                     
+                        
+                           
+                              1600 micron_20mm
+                              1600 micron mesh net mounted to a 20mm sled.
+                           
+                           
+                              1600 micron_SLS
+                              1600 micron mesh net mounted to a SLS sled.
+                           
+                           
+                              500 micron_SLS
+                              500 micron net mounted to an SLS frame.
+                           
+                           
+                              940 micron_SLS
+                              940 micron net mounted to an SLS sled.
+                           
+                           
+                              500 micron_bongo
+                              A pair of 500 micron SLS nets mounted to a bongo frame.
+                           
+                        
+                     
+                  
+               
+            
+            
+               SpecialStudy
+               SpecialStudy
+               Notes whether sample was part of a special study collection
+               string
+               
+                  
+                     
+                        
+                           
+                              Day-Night Comparison 2022
+                              Day night comparison special study undertaken in 2022.
+                           
+                           
+                              Gear Comparison 2023
+                              Gear comparison study undertaken in May 2023.
+                           
+                           
+                              Day-Night Comparison 2024
+                              Diel comparison undertaken in 2024, representing those samples collected at night.
+                           
+                        
+                     
+                  
+               
+               
+                  NA
+                  Sample was part of routine sampling.
+               
+            
+            
+               StartLat
+               StartLat
+               Latitude (WGS84) at start of tow in DMS format.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               StartLong
+               StartLong
+               Longitude (WGS84) at start of tow in DMS format
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               GPSCondition
+               GPSCondition
+               Index, 1 indicates no problem with GPS data, 3 indicates data where GPS data is suspect or missing.
+               string
+               
+                  
+                     
+                        
+                           
+                              1
+                              GPS data is ready to use and complete.
+                           
+                           
+                              3
+                              GPS data is missing or suspect.
+                           
+                        
+                     
+                  
+               
+            
+            
+               TopEC
+               TopEC
+               Specific Conductivity in µS/cm, collected from 1 meter below the surface.
+               float
+               
+                  
+                     
+                        µS/cm
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               BottomEC
+               BottomEC
+               Specific Conductivity in µS/cm, collected from benthos.
+               float
+               
+                  
+                     
+                        µS/cm
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Secchi
+               Secchi
+               Secchi depth in centimeters
+               float
+               
+                  
+                     
+                        centimeter
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Turbidity
+               Turbidity
+               Turbidity in Formazin Nephelometric Units (FNU)
+               float
+               
+                  
+                     
+                        FNU
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Temp
+               Temp
+               Water temperature in degrees C
+               float
+               
+                  
+                     
+                        celsius
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Tide
+               Tide
+               Tidal condition at time of sampling.
+               string
+               
+                  
+                     
+                        
+                           
+                              slack
+                              Slack tide
+                           
+                           
+                              flood
+                              flood tide
+                           
+                           
+                              ebb
+                              ebb tide
+                           
+                        
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               BottomDepth
+               BottomDepth
+               Depth beneath transducer, in feet.
+               float
+               
+                  
+                     
+                        foot
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               CableOut
+               CableOut
+               Length of cable let out at tow start, in feet.
+               float
+               
+                  
+                     
+                        foot
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Duration
+               Duration
+               Tow duration in minutes
+               float
+               
+                  
+                     
+                        minute
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               NetMeterStart
+               NetMeterStart
+               Starting flowmeter reading
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               NetMeterEnd
+               NetMeterEnd
+               Ending flowmeter reading
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               FlowTotal
+               FlowTotal
+               Difference of NetMeterEnd minus NetMeterStart
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               FlowCondition
+               FlowCondition
+               Index, 1 indicates no problem with flow data, 3 indicates data where flow data is suspect or missing.
+               string
+               
+                  
+                     
+                        
+                           
+                              1
+                              flow value has no issues and is ready for use.
+                           
+                           
+                              3
+                              flow value is missing or suspect.
+                           
+                        
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Volume
+               Volume
+               Volume calculated using distance. Distance was calculated using the formula ((FlowTotal*meter constant)/999999). The meter constant for the General Oceanics 2030 is 26873. Volume was calculated using (pi*net area(0.37 cubic meters)*distance)/4. See General Oceanics 2030 Manual for details on Volume calculation. Available here; https://envcoglobal.com/wp-content/uploads/2014/10/2030-flowmete-manual.pdf
+               float
+               
+                  
+                     
+                        meterCubed
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               CommonName
+               CommonName
+               The common name of the species collected. "No Catch" indicates that no specimens were collected in this sample.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               Catch
+               Catch
+               Number of fish of a particular taxa captured.
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        integer
+                     
+                  
+               
+               
+                  NA
+                  Appears when no fish were collected.
+               
+            
+            
+               Length
+               Length(mm)
+               Length of fish in mm.
+               float
+               
+                  
+                     
+                        millimeter
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Not collected (no catch)
+               
+            
+            
+               AdjustedFrequency
+               Adjusted Frequency
+               The number of fish at a given length, interpolated by taking the proportion of measured fish at a given length (measured/catch)*unmeasured fish and adding the result to the measured frequency for that length.
+               float
+               
+                  
+                     
+                        interpolated count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+         
+         no
+         6249
+      
+      
+         waterinfo
+         Raw CSV filed uploaded from the LES database. Each row represents environmental data collected during an individual tow.
+         
+            waterinfo.csv
+            231257
+            058dc73b784441a0cb795fc08241fb51
+            
+               
+                  1
+                  \r\n
+                  column
+                  
+                     ,
+                     "
+                  
+               
+            
+            
+               
+                  https://pasta.lternet.edu/package/data/eml/edi/1770/2/f47db55624298a02fda8bbdc0c77def0
+               
+            
+         
+         
+            
+               ID_short
+               ID_short
+               A human-readable ID to conveniently identify individual samples, in the format Date-Station-Tow. This ID is used in the combined and waterinfo tables, and also referenced on catch, length, and towinfo.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               WaterInfoID
+               WaterInfoID
+               ID assigned to individual environmental data collections during data entry, used to link data tables.
+               integer
+               
+                  
+                     
+                        WaterInfoID
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               Survey
+               Survey
+               Julian week - number of weeks since Jan 1.
+               integer
+               
+                  
+                     
+                        Week
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               Date
+               Date
+               Date in YMD format.
+               dateTime
+               
+                  
+                     YYYY-MM-DD
+                     
+                  
+               
+            
+            
+               Station
+               Station
+               In 2022 and 2023, station was used as an index of the transect and tow number. The first digit is the transect (1-3), and the remaining digits are the tow number. Later datasets use this column to record the SLS sampling station where data was collected.
+               float
+               
+                  
+                     
+                        StationCode
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               GearType
+               GearType
+               Describes the mesh of net used and the type of sled it was mounted to.
+               string
+               
+                  
+                     
+                        
+                           
+                              1600 micron_20mm
+                              1600 micron mesh net mounted to a 20mm sled.
+                           
+                           
+                              1600 micron_SLS
+                              1600 micron mesh net mounted to a SLS sled.
+                           
+                           
+                              500 micron_SLS
+                              500 micron net mounted to an SLS frame.
+                           
+                           
+                              940 micron_SLS
+                              940 micron net mounted to an SLS sled.
+                           
+                           
+                              500 micron_bongo
+                              Two 500 micron SLS nets mounted side by side on a bongo sled.
+                           
+                        
+                     
+                  
+               
+            
+            
+               StartLat
+               StartLat
+               Latitude at start of tow in DMS format.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               StartLong
+               StartLong
+               Longitude at start of tow in DMS format
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               GPSCondition
+               GPSCondition
+               Index of GPS data quality.
+               string
+               
+                  
+                     
+                        
+                           
+                              1
+                              GPS data is in good condition and can be used freely.
+                           
+                           
+                              3
+                              GPS data has missing values or was not collected
+                           
+                        
+                     
+                  
+               
+            
+            
+               TopEC
+               TopEC
+               Specific Conductivity in μS, collected from 1 meter below the surface.
+               float
+               
+                  
+                     
+                        siemens
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               BottomEC
+               BottomEC
+               Specific Conductivity in μS, collected from benthos.
+               float
+               
+                  
+                     
+                        siemens
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Secchi
+               Secchi
+               Secchi depth in centimeters
+               float
+               
+                  
+                     
+                        centimeter
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Turbidity
+               Turbidity
+               Turbidity in Formazin Nephelometric Units (FNU)
+               float
+               
+                  
+                     
+                        FNU
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Temp
+               Temp
+               Water temperature in degrees C
+               float
+               
+                  
+                     
+                        celsius
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Tide
+               Tide
+               Tidal condition at time of sampling.
+               string
+               
+                  
+                     
+                        
+                           
+                              ebb
+                              ebb tide
+                           
+                           
+                              flood
+                              flood tide
+                           
+                           
+                              slack
+                              slack tide
+                           
+                        
+                     
+                  
+               
+            
+         
+         no
+         2015
+      
+      
+         towinfo
+         Raw CSV filed uploaded from the LES database. Each row represents environmental data collected during an individual tow.
+         
+            towinfo.csv
+            229266
+            f1b8685fee2ba16b4df858ecc0ac1190
+            
+               
+                  1
+                  \r\n
+                  column
+                  
+                     ,
+                     "
+                  
+               
+            
+            
+               
+                  https://pasta.lternet.edu/package/data/eml/edi/1770/2/81789903ed7fb43d41c21afd0cce89f3
+               
+            
+         
+         
+            
+               ID_long
+               ID_long
+               A human-readable ID to conveniently identify individual samples, in the format Date-Station-Tow-Sample Special Study. This ID is added to the towinfo, catch, and length tables. Because WaterInfo has each row representing multiple samples, it uses the shorter field ID_short.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               WaterInfoID
+               WaterInfoID
+               A unique identifier for each sample collection found in the WaterInfo table, representing a single tow and its associated data
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               TowInfoID
+               TowInfoID
+               A unique identifier for each sample collection found in the TowInfo table, representing a single sample and its associated data
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               Tow
+               Tow
+               Sequential order of Tows collected. In 2022, Tow referred to a group of 5 tows and were lettered A, B & C. This column is where the individual tow occurred within that group.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               Sample
+               Sample
+               The sequential order of samples collected at a station. Each sample was collected from an individual net and stored in seperate jars. For bongo sampling, two samples are associated with each tow. Generally, tow 1 is associated with samples 1 & 2, tow 2 with 3 & 4, etc.
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               Time
+               Time
+               Time in PST that a tow began.
+               dateTime
+               
+                  
+                     hh:mm
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               SpecialStudy
+               SpecialStudy
+               Notes whether sample was part of a special study collection
+               string
+               
+                  
+                     
+                        
+                           
+                              Day-Night Comparison 2022
+                              Day night comparison special study undertaken in 2022.
+                           
+                           
+                              Gear Comparison 2023
+                              Gear comparison study undertaken in May 2023.
+                           
+                           
+                              Day-Night Comparison 2024
+                              Diel comparison conducted in 2024. Marks samples collected during nighttime sampling.
+                           
+                        
+                     
+                  
+               
+               
+                  NA
+                  Sample was part of routine sampling.
+               
+            
+            
+               BottomDepth
+               BottomDepth
+               Depth beneath transducer, in feet.
+               float
+               
+                  
+                     
+                        foot
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               CableOut
+               CableOut
+               Length of cable let out at tow start, in feet.
+               float
+               
+                  
+                     
+                        foot
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Duration
+               Duration
+               Tow duration in minutes
+               float
+               
+                  
+                     
+                        minute
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               NetMeterStart
+               NetMeterStart
+               Starting flowmeter reading
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               NetMeterEnd
+               NetMeterEnd
+               Ending flowmeter reading
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               FlowTotal
+               FlowTotal
+               Difference of NetMeterEnd minus NetMeterStart
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               FlowCondition
+               FlowCondition
+               Index, 1 indicates no problem with flow data, 3 indicates data where flow data is suspect or missing.
+               string
+               
+                  
+                     
+                        
+                           
+                              1
+                              flow value has no issues and is ready for use.
+                           
+                           
+                              3
+                              flow value is missing or suspect.
+                           
+                        
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+            
+               Volume
+               Volume
+               Volume calculated using distance. Distance was calculated using the formula ((FlowTotal*meter constant)/999999). The meter constant for the General Oceanics 2030 is 26873. Volume was calculated using (pi*net area(0.37 cubic meters)*distance)/4. See General Oceanics 2030 Manual for details on Volume calculation. Available here; https://envcoglobal.com/wp-content/uploads/2014/10/2030-flowmete-manual.pdf
+               float
+               
+                  
+                     
+                        meterCubed
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  Value was not always collected.
+               
+            
+         
+         no
+         2289
+      
+      
+         catch
+         Raw CSV filed uploaded from the LES database. This table contains LES catch data. Each row contains the catch data for a particular species collected during a specific tow. Length data is not included - see Lengths.csv.
+         
+            catch.csv
+            146479
+            6d647b95f3c4cc3cba13a08eeda0067c
+            
+               
+                  1
+                  \r\n
+                  column
+                  
+                     ,
+                     "
+                  
+               
+            
+            
+               
+                  https://pasta.lternet.edu/package/data/eml/edi/1770/2/a8982eb2a988054aa4d8d792dd074cca
+               
+            
+         
+         
+            
+               TowInfoID
+               TowInfoID
+               A unique identifier for each sample collection found in the TowInfo table, representing a single sample and its associated data
+               integer
+               
+                  
+                     
+                        Index
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               ID_long
+               ID_long
+               A human-readable ID to conveniently identify individual samples, in the format Date-Station-Tow-Sample Special Study. This ID is added to the towinfo, catch, and length tables. Because WaterInfo has each row representing multiple samples, it uses the shorter field ID_short.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               CommonName
+               CommonName
+               The common name of the species collected. "No Catch" indicates that no specimens were collected in this sample.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               Catch
+               Catch
+               Number of fish of a particular taxa captured.
+               float
+               
+                  
+                     
+                        count
+                     
+                     
+                        integer
+                     
+                  
+               
+               
+                  NA
+                  Appears when no fish were collected.
+               
+            
+            
+               CatchID
+               CatchID
+               A unique identifier for each taxa found in the Catch table, representing a single species from a particular sample and its related information.
+               float
+               
+                  
+                     
+                        Index
+                     
+                     
+                        real
+                     
+                  
+               
+               
+                  NA
+                  No Catch
+               
+            
+         
+         no
+         2688
+      
+      
+         length
+         Raw CSV filed uploaded from the LES database. This is a table of LES length data. Each individual row represents a specific fish of a particular taxa collected during sampling and its length.
+         
+            length.csv
+            3140989
+            01f204e27a37c11ac0931f79438984c9
+            
+               
+                  1
+                  \r\n
+                  column
+                  
+                     ,
+                     "
+                  
+               
+            
+            
+               
+                  https://pasta.lternet.edu/package/data/eml/edi/1770/2/2fa47f7c65fec19cc163b195725e3844
+               
+            
+         
+         
+            
+               LengthID
+               LengthID
+               Unique ID assigned to each individual fish of a particular taxa.
+               float
+               
+                  
+                     
+                        LengthID
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               CatchID
+               CatchID
+               Unique ID assigned to fish of a particular taxa that had the same length
+               float
+               
+                  
+                     
+                        CatchID
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               Length
+               Length1
+               Length in millimeters of fish.
+               float
+               
+                  
+                     
+                        millimeter
+                     
+                     
+                        integer
+                     
+                  
+               
+            
+            
+               YolkSacOrOilPresent
+               YolkSacOrOilPresent
+               Whether a visible yolk sac or oil globule was present. Only recorded for osmerid species.
+               string
+               
+                  
+                     
+                        
+                           
+                              False
+                              no yolk sac or oil globule present
+                           
+                           
+                              True
+                              yolk sac or oil globule present
+                           
+                        
+                     
+                  
+               
+            
+            
+               ID_long
+               ID_long
+               A human-readable ID to conveniently identify individual samples, in the format Date-Station-Tow-Sample Special Study. This ID is added to the towinfo, catch, and length tables. Because WaterInfo has each row representing multiple samples, it uses the shorter field ID_short.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+            
+               CommonName
+               CommonName
+               Common name of fish taxa collected.
+               string
+               
+                  
+                     
+                        
+                           text
+                        
+                     
+                  
+               
+            
+         
+         no
+         51081
+      
+      
+         LES Data Formatting 2024
+         R script used with raw LES data for formatting, cleaning, and combining into a single unified table.
+         
+            LES Data Formatting 2024.R
+            17184
+            19c5b34f30215870972992393727b9bb
+            
+               
+                  .R
+               
+            
+            
+               
+                  https://pasta.lternet.edu/package/data/eml/edi/1770/2/45c94ac87d58411ee1b72177d6215b79
+               
+            
+         
+         .R
+      
+   
+   
+      
+         
+            
+               The number of rotations completed by a General Oceanics 2030 flowmeter.
+            
+            
+               A unique ID number assigned to each water quality data collection. Fart
+            
+            
+               Formazin nephelometric units
+            
+            
+               One Julian week, starting January 1st.
+            
+            
+               
+            
+            
+               Microsiemens per centimeter
+            
+            
+               A unique ID number assigned to each collection of water quality data.
+            
+            
+               A 3 digit code. In 2022 & 2023, this reflected the transect (first digit) and tow (second and third digits). In 2024 and beyond this was the SLS station at which sampling was conducted.
+            
+            
+               A unique ID number for each taxa collected during a particular tow.
+            
+            
+               Unique ID assigned to a specific length of a particular taxa collected during a specific tow.
+            
+            
+               
+            
+         
+      
+   
+   
+      
+         
+      
+   

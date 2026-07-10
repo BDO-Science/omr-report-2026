@@ -1,6 +1,7 @@
-# This file pulls and plots the environmental data for Smelt OMR Season for the 2023 OMR Seasonal Report.
-# modified by G. Easterbrook (geasterbrook@usbr.gov), data pulling code derived from code by N. Bertrand
-# Last edited by L. McCormick (lmccormick@usbr.gov) for 2025 OMR report
+# This file pulls and plots the environmental data for Smelt OMR Season for the 2026 OMR Seasonal Report.
+# modified by G.Easterbrook (geasterbrook@usbr.gov), data pulling code derived from code by N. Bertrand
+# Last edited by L. McCormick (lmccormick@usbr.gov) for 2025, 2026 OMR reports
+
 
 
 library(devtools)
@@ -17,6 +18,8 @@ library(gridExtra)
 library(deltafish)
 library(here)
 
+
+# check wd with here()
 
 
 #qwest data-- will do qwest once we receive data file 

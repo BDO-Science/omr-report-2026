@@ -15,13 +15,25 @@ library(patchwork)
 library(readr)
 library(readxl)
 library(gridExtra)
-library(deltafish)
+library(janitor)
+#library(deltafish)
 library(here)
 
 
 # check wd with here()
 
 
+# Define start and end date, water year
+wy <- year(Sys.Date())
+py <- wy-1
+start <- paste0(py,"-10-01")
+#end <- paste0(wy,"-06-30")
+# or, if season ends prior to June 30:
+end <- "2026-06-24"
+
+
+#####################################
+## QWEST DATA
 #qwest data-- will do qwest once we receive data file 
 
 #qwest0 <- read_excel(here::here("ControllingFactors", "Controlling Factors Table WY 2023.xlsx"), sheet = "OCOD Data 2023")
@@ -43,11 +55,20 @@ qwest <- qwest0 %>%
 #select(Date, QWESTcfs) %>%
 #mutate(Date = ymd(Date))
 
+########################################
+## JPF Data
+
+# Read in JPF historical data
+jpf_all <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_JPF.csv") %>% 
+  clean_names() %>%
+  mutate(date = ymd(date)) %>% 
+  filter(date <= end)
+
 
 # sets the dates to be pulled from cdec for the OMR season
 
-start.date <- "2024-10-01"
-end.date <- "2025-06-30"
+start.date <- start
+end.date <- end
 
 # Series of cdec queries to pull data needed to fill out the reports datafile ------------
 clc.C <- cdec_query("CLC", "146", "D", start.date, end.date)%>%
@@ -64,8 +85,9 @@ HOL.fnu.hr <- cdec_query("HOL", "221", "H", start.date, end.date) %>%
 
 HOL.fnu <- HOL.fnu.hr %>%
   group_by(date) %>%
-  summarize(parameter_value= mean(parameter_value, na.rm=TRUE))
-HOL.fnu <- HOL.fnu[-c(274),] # remove weird last line
+  summarize(parameter_value= mean(parameter_value, na.rm=TRUE)) %>% 
+  filter(!is.na(date))
+
 
 # OBI.fnu.event <- cdec_query("OBI", "221", "E", start.date, end.date) %>%
 #   rename(date = datetime) %>%
@@ -115,35 +137,34 @@ PPT.c <- cdec_query("PPT", 146, "D", start.date, end.date)%>%
 # 
 # close_database(con)
 
-# Manually add secchi depth data
-sd <- read.table("SecchiDepth_2025.txt", header = TRUE, sep = "\t")
+# Manually add South Delta average turbidity data
+sd.turb <-read.table(here("EnvironmentalConditions", "sd_turb_2026.txt"), header = TRUE, sep = "\t")
 sd$Date <- as.Date(sd$Date)
 
 
-#### Old method  of creating data
-
-# DateSeriesWY2023 <- data.frame(date = seq(as.Date(start.date),as.Date(end.date), by = "1 days"))
-# date.key = DateSeriesWY2023
-
 #### Clean up data and make sure not too many dates missing -------------------------------
+
+JPF.cfs.smelt <- jpf_all %>% 
+  select(date, jpf_cfs) %>% 
+  rename(JPF.cfs.smelt= jpf_cfs)
 
 OBI.fnu.smelt <- OBI.fnu %>%
   select(date, parameter_value) %>% rename(OBI.fnu.smelt = parameter_value) %>%
   pad #double check all dates in there
 
-(OBI.fnu.smelt %>% filter(is.na(OBI.fnu.smelt))) # 8 days missing
+(OBI.fnu.smelt %>% filter(is.na(OBI.fnu.smelt))) # 5 days missing
 
 HOL.fnu.smelt <- HOL.fnu %>%
   select(date, parameter_value) %>% rename(HOL.fnu.smelt = parameter_value) %>%
   pad #double check all dates in there
 
-(HOL.fnu.smelt %>% filter(is.na(HOL.fnu.smelt))) # 3 days missing
+(HOL.fnu.smelt %>% filter(is.na(HOL.fnu.smelt))) # 0 days missing
 
 OSJ.fnu.smelt <- OSJ.fnu %>%
   select(date, parameter_value) %>% rename(OSJ.fnu.smelt = parameter_value) %>%
   pad #double check all dates in there
 
-(OSJ.fnu.smelt %>% filter(is.na(OSJ.fnu.smelt))) # 6 days missing
+(OSJ.fnu.smelt %>% filter(is.na(OSJ.fnu.smelt))) # 3 days missing
 
 FPT.cfs.smelt <- FPT.cfs %>% 
   select(date, parameter_value) %>% rename(FPT.cfs.smelt = parameter_value) %>%
@@ -153,7 +174,7 @@ FPT.cfs.smelt <- FPT.cfs %>%
          FPT.3day.cfs = rollapplyr(FPT.cfs.smelt,3,  mean, align = "right", partial =T)) %>%
   filter(date >= start.date)
 
-(FPT.cfs.smelt %>% filter(is.na(FPT.cfs.smelt))) # 11 days missing in 2025
+(FPT.cfs.smelt %>% filter(is.na(FPT.cfs.smelt))) # 13 days missing in 2026
 
 FPT.fnu.smelt <- FPT.fnu %>%
   select(date, parameter_value) %>% rename(FPT.fnu.smelt = parameter_value) %>%
@@ -163,14 +184,14 @@ FPT.fnu.smelt <- FPT.fnu %>%
          FPT.3day.fnu = rollapplyr(FPT.fnu.smelt,3, mean, align = "right", partial =TRUE)) %>%
   filter(date >= start.date)
 
-(FPT.fnu.smelt %>% filter(is.na(FPT.fnu.smelt))) # 5 days missing in 2025
+(FPT.fnu.smelt %>% filter(is.na(FPT.fnu.smelt))) # 11 days missing in 2026
 
 CLC.C.smelt <- clc.C %>% 
   select(date, parameter_value) %>% rename(CLC.C.smelt = parameter_value) %>%
   #mutate(CLC.F.smelt = (CLC.C.smelt * 9/5) + 32) %>%
   pad
 
-(CLC.C.smelt %>% filter(is.na(CLC.C.smelt))) # 8 days missing
+(CLC.C.smelt %>% filter(is.na(CLC.C.smelt))) # 0 days missing
 
 MSD.C.salmon <- MSD.c %>%
   group_by(date) %>% 
@@ -231,14 +252,14 @@ theme_plots <- theme(axis.title.x = element_blank(),
                      axis.text = element_text(size = 11),
                      axis.title = element_text(size = 12))
 #uncomment once qwest data is received 
-(plot_qwest <- ggplot(qwest) +
-    geom_hline(yintercept = 0,  linewidth = 1, linetype = "dashed", color = "gray70") +
-    geom_line(aes(Date, QWESTcfs), linewidth= 0.7) +
-    scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-    theme_plots +
-    labs(y = "QWEST (cfs)", x= "Date (WY25)") +
-    scale_y_continuous(limits= c(-10000, 20000), breaks= c(-10000, -5000, 0, 5000, 10000, 15000, 20000))+
-    theme_bw())
+# (plot_qwest <- ggplot(qwest) +
+#     geom_hline(yintercept = 0,  linewidth = 1, linetype = "dashed", color = "gray70") +
+#     geom_line(aes(Date, QWESTcfs), linewidth= 0.7) +
+#     scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+#     theme_plots +
+#     labs(y = "QWEST (cfs)", x= "Date (WY25)") +
+#     scale_y_continuous(limits= c(-10000, 20000), breaks= c(-10000, -5000, 0, 5000, 10000, 15000, 20000))+
+#     theme_bw())
 
 
 (plot_obi <- ggplot(smelt_env_params) + 

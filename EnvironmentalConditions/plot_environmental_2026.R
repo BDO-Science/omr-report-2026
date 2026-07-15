@@ -70,10 +70,11 @@ jpf_all <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY
 start.date <- start
 end.date <- end
 
+#######################################################
+# DATA DOWNLOAD
 # Series of cdec queries to pull data needed to fill out the reports datafile ------------
-clc.C <- cdec_query("CLC", "146", "D", start.date, end.date)%>%
-  rename(date = datetime) %>%
-  mutate(date = as.Date(date))
+
+# Adult DS entrainment action and temp offramp
 
 OBI.fnu <- cdec_query("OBI", "221", "D", start.date, end.date) %>%
   rename(date = datetime) %>%
@@ -88,14 +89,23 @@ HOL.fnu <- HOL.fnu.hr %>%
   summarize(parameter_value= mean(parameter_value, na.rm=TRUE)) %>% 
   filter(!is.na(date))
 
-
-# OBI.fnu.event <- cdec_query("OBI", "221", "E", start.date, end.date) %>%
-#   rename(date = datetime) %>%
-#   mutate(date = as.Date(date))
-
 OSJ.fnu <- cdec_query("OSJ", "221", "D", start.date, end.date) %>%
   rename(date = datetime) %>%
   mutate(date = as.Date(date))
+
+
+RVB.c.daily <- cdec_query("RVB", "146", "D", start.date, end.date)%>%
+  rename(date = datetime) %>%
+  mutate(date = as.Date(date))
+
+SJW.c.daily <- cdec_query("SJW", "146", "E", start.date, end.date)%>% #starts 1/20/26
+  rename(date = datetime) %>%
+  mutate(date = as.Date(date)) %>% 
+  group_by(date) %>%
+  summarize(parameter_value= mean(parameter_value, na.rm=TRUE)) %>% 
+  filter(!is.na(date))
+
+# First flush conditions
 
 FPT.cfs <- cdec_query("FPT", "20", "D", start.date, end.date)%>%
   rename(date = datetime)%>%
@@ -105,11 +115,17 @@ FPT.fnu <- cdec_query("FPT", "221", "D", start.date, end.date)%>%
   rename(date = datetime)%>%
   mutate(date = as.Date(date))
 
+# Offramp temperature triggers
+
 MSD.c <- cdec_query("MSD", 146, "D", start.date, end.date) %>% 
   mutate(date = date(datetime))
 
 PPT.c <- cdec_query("PPT", 146, "D", start.date, end.date)%>% 
   mutate(date = date(datetime)) 
+
+clc.C <- cdec_query("CLC", "146", "D", start.date, end.date)%>%
+  rename(date = datetime) %>%
+  mutate(date = as.Date(date))
 
 
 #### Secchi depth data (SLS and 20mm surveys)
@@ -138,8 +154,9 @@ PPT.c <- cdec_query("PPT", 146, "D", start.date, end.date)%>%
 # close_database(con)
 
 # Manually add South Delta average turbidity data
-sd.turb <-read.table(here("EnvironmentalConditions", "sd_turb_2026.txt"), header = TRUE, sep = "\t")
-sd$Date <- as.Date(sd$Date)
+sd.turb <-read.table(here("EnvironmentalConditions", "sd_turb_2026.txt"), header = TRUE, sep = "\t") %>% 
+  mutate(date = as.Date(date))
+#sd.turb$date <- as.Date(sd.turb$date)
 
 
 #### Clean up data and make sure not too many dates missing -------------------------------
@@ -165,6 +182,25 @@ OSJ.fnu.smelt <- OSJ.fnu %>%
   pad #double check all dates in there
 
 (OSJ.fnu.smelt %>% filter(is.na(OSJ.fnu.smelt))) # 3 days missing
+
+
+RVB.temp.smelt <- RVB.c.daily %>% 
+  select(date, parameter_value) %>% rename(RVB.c.smelt = parameter_value) %>%
+  pad %>%
+  arrange(date) %>%
+  mutate(RVB.c.smelt = as.numeric(RVB.c.smelt),
+         RVB.3day.c = rollapplyr(RVB.c.smelt,3,  mean, align = "right", partial =T)) %>%
+  filter(date >= start.date)
+
+SJW.temp.smelt <- SJW.c.daily %>% 
+  select(date, parameter_value) %>% rename(SJW.c.smelt = parameter_value) %>%
+  pad %>%
+  arrange(date) %>%
+  mutate(SJW.c.smelt = as.numeric(SJW.c.smelt),
+         SJW.3day.c = rollapplyr(SJW.c.smelt,3,  mean, align = "right", partial =T)) %>%
+  filter(date >= start.date)
+
+
 
 FPT.cfs.smelt <- FPT.cfs %>% 
   select(date, parameter_value) %>% rename(FPT.cfs.smelt = parameter_value) %>%
@@ -238,7 +274,8 @@ PPT.C.salmon <- PPT.c %>%
 
 
 # Combine into one df and write ----------------------------------
-smelt_env_params <- reduce(list(OBI.fnu.smelt, HOL.fnu.smelt, OSJ.fnu.smelt, FPT.cfs.smelt, FPT.fnu.smelt, CLC.C.smelt), dplyr::left_join, by = "date")
+smelt_env_params <- reduce(list(JPF.cfs.smelt, OBI.fnu.smelt, HOL.fnu.smelt, OSJ.fnu.smelt, RVB.temp.smelt, 
+                                SJW.temp.smelt, FPT.cfs.smelt, FPT.fnu.smelt, CLC.C.smelt), dplyr::left_join, by = "date")
 # write_csv(smelt_env_params, "EnvironmentalConditions/output/Data_smelt_environmental.csv")
 smelt_env_params$date <- as.Date(smelt_env_params$date)
 
@@ -265,11 +302,11 @@ theme_plots <- theme(axis.title.x = element_blank(),
 (plot_obi <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, smelt_env_params$OBI.fnu.smelt), size=0.6) +
-    annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
-             ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
-    geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size= 1, alpha=0.8)+
+    # annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
+    #          ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
+    # geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size= 1, alpha=0.8)+
     scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
-    labs(y = "OBI Turbidity (FNU)") +
+    labs(y = "OBI Turb. (FNU)") +
     ggtitle("A")+
     theme_bw() +
     theme_plots)
@@ -277,11 +314,11 @@ theme_plots <- theme(axis.title.x = element_blank(),
 (plot_hol <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, smelt_env_params$HOL.fnu.smelt), size= 0.6) +
-    annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
-             ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
-    geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size = 1, alpha=0.8)+
+    # annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
+    #          ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
+    # geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size = 1, alpha=0.8)+
     scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
-    labs(y = "HOL Turbidity (FNU)") +
+    labs(y = "HOL Turb. (FNU)") +
     ggtitle("B")+
     theme_bw() +
     theme_plots)
@@ -289,53 +326,72 @@ theme_plots <- theme(axis.title.x = element_blank(),
 (plot_osj <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, smelt_env_params$OSJ.fnu.smelt), size= 0.6) +
-    annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
-             ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
-    geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size= 1, alpha=0.8)+
+    # annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
+    #          ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
+    # geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size= 1, alpha=0.8)+
     scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
-    labs(y = "OSJ Turbidity (FNU)") +
+    labs(y = "OSJ Turb. (FNU)") +
     ggtitle("C")+
     theme_bw() +
     theme_plots)
 
-turb_bridge <- grid.arrange(plot_obi, plot_hol, plot_osj, ncol=1)
+(plot_temp <- ggplot(smelt_env_params) + 
+    geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
+    geom_line(aes(date, smelt_env_params$RVB.3day.c, color= "#0072B2"), size= 0.9) +
+    geom_line(aes(date, smelt_env_params$SJW.3day.c, color ="#009E73"), size= 0.9) +
+    scale_color_identity(
+      name = "Station",
+      breaks = c("#0072B2", "#009E73"),
+      labels = c("RVB", "SJW"),
+      guide = "legend"
+    ) +
+    #guides(color = guide_legend(override.aes = list(size = 1)))+
+    # annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
+    #          ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
+    geom_vline(xintercept = as.Date("2026-02-10"), color= "#009E73", size= 0.5, alpha=0.9)+
+    geom_vline(xintercept = as.Date("2026-02-11"), color= "#009E73", size= 0.5, alpha=0.9)+
+    geom_vline(xintercept = as.Date("2026-02-12"), color= "#009E73", size= 0.5, alpha=0.9)+
+    scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
+    labs(y = "Water Temp. (°C)") +
+    ggtitle("D")+
+    theme_bw() +
+    theme(legend.position = c(0.96, 0.03),   # (x, y) in relative plot coordinates
+          legend.justification = c("right", "bottom"),  # Anchor legend's bottom-left corner
+          legend.background = element_rect(fill = "white", color = "black"),
+          legend.key.size = unit(0.5, "cm"),  # smaller keys
+          legend.text = element_text(size = 8),  # smaller text
+          legend.title = element_text(size = 9))+
+    theme_plots)
+
+turb_bridge <- grid.arrange(plot_obi, plot_hol, plot_osj, plot_temp, ncol=1)
+ggsave(turb_bridge, file = here("EnvironmentalConditions/env_outputs", "ds_adult_turb_2026.png"), height = 6.2, width = 6.3)
 
 
 
 (plot_fpt1 <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 25000, linewidth = 1, linetype = "dashed", color = "gray70") +
-    geom_line(aes(date, FPT.cfs.smelt), size= 0.6) +
-    annotate(geom= "rect", xmin = as.Date("2024-12-19"), xmax = as.Date("2025-01-01"), 
+    geom_line(aes(date, FPT.3day.cfs), size= 0.6) +
+    annotate(geom= "rect", xmin = as.Date("2025-12-25"), xmax = as.Date("2026-01-07"), 
              ymin= Inf, ymax= -Inf, color= "orange", fill="orange", alpha=0.3)+
-    geom_vline(xintercept = as.Date("2024-12-16"), color= "red", size= 1, alpha=0.8)+
+    geom_vline(xintercept = as.Date("2025-12-23"), color= "red", size= 1, alpha=0.8)+
     scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
-    # geom_vline(xintercept = as.numeric(as.Date("2024-01-23")), 
-    #            color = "red") +
-    # geom_vline(xintercept = as.numeric(as.Date("2024-02-05")), 
-    #            color = "red") +
     labs(y = "FPT Flow (cfs)", title = "A") +
     theme_bw() +
     theme_plots)
 
 (plot_fpt2 <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 50, linewidth = 1, linetype = "dashed", color = "gray70") +
-    geom_line(aes(date, FPT.fnu.smelt), linewidth= 0.6) +
-    annotate(geom= "rect", xmin = as.Date("2024-12-19"), xmax = as.Date("2025-01-01"), 
+    geom_line(aes(date, FPT.3day.fnu), linewidth= 0.6) +
+    annotate(geom= "rect", xmin = as.Date("2025-12-25"), xmax = as.Date("2026-01-07"), 
              ymin= Inf, ymax= -Inf, color= "orange", fill="orange", alpha=0.3)+
-    geom_vline(xintercept = as.Date("2024-12-16"), color= "red", alpha=0.8, size=1)+
+    geom_vline(xintercept = as.Date("2025-12-23"), color= "red", alpha=0.8, size=1)+
     scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-    # geom_vline(xintercept = as.numeric(as.Date("2024-01-23")), 
-    #            color = "red") +
-    # geom_vline(xintercept = as.numeric(as.Date("2024-02-05")), 
-    #            color = "red") +
     labs(y = "FPT Turbidity (FNU)", title = "B") +
     theme_bw() +
     theme_plots)
 
-gA <- ggplotGrob(plot_fpt1)
-gB <- ggplotGrob(plot_fpt2)
-grid::grid.newpage()
-grid::grid.draw(rbind(gA, gB)) # use this method so Y axis lines up
+fflush <- plot_fpt1/plot_fpt2 # uses patchwork pkg to line up axes
+ggsave(fflush, file = here("EnvironmentalConditions/env_outputs", "first_flush_2026.png"), height = 4.1, width = 6.1)
 
 
 (plot_clc <- ggplot(offramp_env_params) + 
@@ -377,16 +433,49 @@ grid::grid.draw(rbind(gA, gB,gC)) # use this method so Y axis lines up
 #(plot_offramp <- plot_msd/plot_ppt/plot_clc)
 
 
-ggplot(sd, aes(x=Date, y=AvgSecchi.cm))+
+# Larval/juvenile delta smelt action
+
+sd.turb.fig <- ggplot(sd.turb, aes(x=date, y=mean.turb.fnu))+
   geom_line()+
   geom_point()+
-  geom_hline(yintercept = 100, linewidth = 1, linetype = "dashed", color = "gray70") +
-  geom_vline(xintercept = as.Date("2025-02-25"), 
+  geom_hline(yintercept = 12, linewidth = 1, linetype = "dashed", color = "gray70") +
+  geom_vline(xintercept = as.Date("2026-02-13"),
              color= "red", linewidth= 1, alpha=0.3)+
   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-  ylab("South Delta average Secchi depth (cm)")+
+  ylab("Turbidity (FNU)")+
+  ggtitle("B")+
   theme_bw() +
   theme_plots
+
+sd.sd.fig <- ggplot(sd.turb, aes(x=date, y=mean.sd.m))+
+  geom_line()+
+  geom_point()+
+  geom_hline(yintercept = 1, linewidth = 1, linetype = "dashed", color = "gray70") +
+  geom_vline(xintercept = as.Date("2026-02-13"),
+             color= "red", linewidth= 1, alpha=0.3)+
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  ylab("Secchi depth (m)")+
+  ggtitle("A")+
+  theme_bw() +
+  theme_plots
+
+jpf_fig <- smelt_env_params %>% 
+  filter(date >="2025-12-29", date <= "2026-06-09") %>% 
+  ggplot(aes(x= date, y= JPF.cfs.smelt))+
+  geom_line()+
+  geom_hline(yintercept = 0, linewidth = 1, linetype = "dashed", color = "gray70") +
+  geom_vline(xintercept = as.Date("2026-02-13"),
+             color= "red", linewidth= 1, alpha=0.3)+
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  ylab("JPF (cfs)")+
+  ggtitle("C")+
+  theme_bw() +
+  theme_plots
+
+plot_larjuv_ds <- sd.sd.fig/sd.turb.fig/jpf_fig
+ggsave(plot_larjuv_ds, file = here("EnvironmentalConditions/env_outputs", "larjuv_ds_2026.png"), height = 4.9
+       , width = 6.1)
+
 
 
 # Write plots------------------------------------------

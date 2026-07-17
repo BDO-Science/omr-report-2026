@@ -78,7 +78,9 @@ end.date <- end
 
 OBI.fnu <- cdec_query("OBI", "221", "D", start.date, end.date) %>%
   rename(date = datetime) %>%
-  mutate(date = as.Date(date))
+  mutate(date = as.Date(date)) %>% 
+  select(date, parameter_value) %>% 
+  mutate(station = "OBI")
 
 HOL.fnu.hr <- cdec_query("HOL", "221", "H", start.date, end.date) %>%
   rename(date = datetime) %>%
@@ -87,11 +89,16 @@ HOL.fnu.hr <- cdec_query("HOL", "221", "H", start.date, end.date) %>%
 HOL.fnu <- HOL.fnu.hr %>%
   group_by(date) %>%
   summarize(parameter_value= mean(parameter_value, na.rm=TRUE)) %>% 
-  filter(!is.na(date))
+  filter(!is.na(date)) %>% 
+  mutate(station = "HOL")
 
 OSJ.fnu <- cdec_query("OSJ", "221", "D", start.date, end.date) %>%
   rename(date = datetime) %>%
-  mutate(date = as.Date(date))
+  mutate(date = as.Date(date)) %>% 
+  select(date, parameter_value) %>% 
+  mutate(station = "OSJ")
+
+fnu.comb <- rbind.data.frame(OBI.fnu, HOL.fnu, OSJ.fnu)
 
 
 RVB.c.daily <- cdec_query("RVB", "146", "D", start.date, end.date)%>%
@@ -335,36 +342,84 @@ theme_plots <- theme(axis.title.x = element_blank(),
     theme_bw() +
     theme_plots)
 
+### test plot of all turbdiity combined
+alt.turb <- ggplot(fnu.comb) + 
+  geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
+  geom_line(aes(x= date, y= parameter_value, color = station), size= 0.9) +
+  scale_color_viridis_d(name = "Station")+
+  # scale_color_identity(
+  #   name = "Station",
+  #   breaks = c("#440154FF", "#21908CFF", "#FDE725FF"), #("#0072B2", "#009E73")
+  #   labels = c("HOL", "OBI", "OSJ"),
+  #   guide = "legend"
+  # ) +
+  #scale_color_discrete(palette = c("#000000","#490092","#009292"))+
+  # annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
+  #          ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
+  # geom_vline(xintercept = as.Date("2025-01-12"), color= "red", size= 1, alpha=0.8)+
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
+  labs(y = "Turbidity (FNU)") +
+  theme_bw() +
+  theme(legend.position = c(0.99, 0.95),   # (x, y) in relative plot coordinates
+        legend.justification = c("right", "top"),  # Anchor legend's bottom-left corner
+        legend.background = element_rect(fill = "white", color = "black"),
+        legend.key.size = unit(0.5, "cm"),  # smaller keys
+        legend.text = element_text(size = 8),  # smaller text
+        legend.title = element_text(size = 9),
+        legend.direction = "horizontal",  # Make legend horizontal
+        legend.box = "horizontal")+
+  ggtitle("A")+
+  theme_plots
+
+plot_jpf <- smelt_env_params %>% 
+  #filter(date >="2025-12-29", date <= "2026-06-09") %>% 
+  ggplot(aes(x= date, y= JPF.cfs.smelt))+
+  geom_line(size=0.9)+
+  geom_hline(yintercept = 0, linewidth = 1, linetype = "dashed", color = "gray70") +
+  # geom_vline(xintercept = as.Date("2026-02-13"),
+  #            color= "red", linewidth= 1, alpha=0.3)+
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  ylab("JPF (cfs)")+
+  ggtitle("B")+
+  theme_bw() +
+  theme_plots
+
 (plot_temp <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
-    geom_line(aes(date, smelt_env_params$RVB.3day.c, color= "#0072B2"), size= 0.9) +
-    geom_line(aes(date, smelt_env_params$SJW.3day.c, color ="#009E73"), size= 0.9) +
+    geom_line(aes(date, smelt_env_params$RVB.3day.c, color= "#9a9a9a"), size= 0.9) +
+    geom_line(aes(date, smelt_env_params$SJW.3day.c, color ="#262626"), size= 0.9) +
     scale_color_identity(
       name = "Station",
-      breaks = c("#0072B2", "#009E73"),
+      breaks = c("#9a9a9a", "#262626"), #("#0072B2", "#009E73")
       labels = c("RVB", "SJW"),
       guide = "legend"
     ) +
     #guides(color = guide_legend(override.aes = list(size = 1)))+
     # annotate(geom= "rect", xmin = as.Date("2025-01-15"), xmax = as.Date("2025-01-16"), 
     #          ymin= Inf, ymax= -Inf, color= "orange", fill= "orange", alpha=0.3)+
-    geom_vline(xintercept = as.Date("2026-02-10"), color= "#009E73", size= 0.5, alpha=0.9)+
-    geom_vline(xintercept = as.Date("2026-02-11"), color= "#009E73", size= 0.5, alpha=0.9)+
-    geom_vline(xintercept = as.Date("2026-02-12"), color= "#009E73", size= 0.5, alpha=0.9)+
+    geom_vline(xintercept = as.Date("2026-02-10"), color= "#262626", size= 0.3, alpha=0.9)+
+    geom_vline(xintercept = as.Date("2026-02-11"), color= "#262626", size= 0.3, alpha=0.9)+
+    geom_vline(xintercept = as.Date("2026-02-12"), color= "#262626", size= 0.3, alpha=0.9)+
     scale_x_date(date_breaks = "1 month", date_labels = "%b") + 
     labs(y = "Water Temp. (°C)") +
-    ggtitle("D")+
+    ggtitle("C")+
     theme_bw() +
-    theme(legend.position = c(0.96, 0.03),   # (x, y) in relative plot coordinates
+    theme(legend.position = c(0.99, 0.03),   # (x, y) in relative plot coordinates
           legend.justification = c("right", "bottom"),  # Anchor legend's bottom-left corner
           legend.background = element_rect(fill = "white", color = "black"),
           legend.key.size = unit(0.5, "cm"),  # smaller keys
           legend.text = element_text(size = 8),  # smaller text
-          legend.title = element_text(size = 9))+
+          legend.title = element_text(size = 9),
+          legend.direction = "horizontal",  # Make legend horizontal
+          legend.box = "horizontal")+
     theme_plots)
 
 turb_bridge <- grid.arrange(plot_obi, plot_hol, plot_osj, plot_temp, ncol=1)
 ggsave(turb_bridge, file = here("EnvironmentalConditions/env_outputs", "ds_adult_turb_2026.png"), height = 6.2, width = 6.3)
+
+turb_bridge_alt <- alt.turb/plot_jpf/plot_temp
+ggsave(turb_bridge_alt, file = here("EnvironmentalConditions/env_outputs", "ds_adult_turb_2026_2.png"), height = 6.2, width = 6.5)
+
 
 
 
@@ -476,6 +531,8 @@ plot_larjuv_ds <- sd.sd.fig/sd.turb.fig/jpf_fig
 ggsave(plot_larjuv_ds, file = here("EnvironmentalConditions/env_outputs", "larjuv_ds_2026.png"), height = 4.9
        , width = 6.1)
 
+sd.turb %>% 
+  filter()
 
 
 # Write plots------------------------------------------

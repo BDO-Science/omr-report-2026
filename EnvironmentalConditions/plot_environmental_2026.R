@@ -123,14 +123,21 @@ FPT.fnu <- cdec_query("FPT", "221", "D", start.date, end.date)%>%
   mutate(date = as.Date(date))
 
 # Offramp temperature triggers
+# Use commmented out versions if daily data doesn't have holes, errors
 
-MSD.c <- cdec_query("MSD", 146, "D", start.date, end.date) %>% 
+# MSD.c <- cdec_query("MSD", 146, "D", start.date, end.date) %>% 
+#   mutate(date = date(datetime))
+
+MSD.f <- cdec_query("MSD", 25, "E", start.date, end.date) %>% 
   mutate(date = date(datetime))
 
-PPT.c <- cdec_query("PPT", 146, "D", start.date, end.date)%>% 
+# PPT.c <- cdec_query("PPT", 146, "D", start.date, end.date)%>% 
+#   mutate(date = date(datetime)) 
+
+PPT.f <- cdec_query("PPT", 25, "E", start.date, end.date)%>% 
   mutate(date = date(datetime)) 
 
-clc.C <- cdec_query("CLC", "146", "D", start.date, end.date)%>%
+CLC.c <- cdec_query("CLC", "146", "D", start.date, end.date)%>%
   rename(date = datetime) %>%
   mutate(date = as.Date(date))
 
@@ -229,16 +236,29 @@ FPT.fnu.smelt <- FPT.fnu %>%
 
 (FPT.fnu.smelt %>% filter(is.na(FPT.fnu.smelt))) # 11 days missing in 2026
 
-CLC.C.smelt <- clc.C %>% 
+
+CLC.C.smelt <- CLC.c %>% 
   select(date, parameter_value) %>% rename(CLC.C.smelt = parameter_value) %>%
   #mutate(CLC.F.smelt = (CLC.C.smelt * 9/5) + 32) %>%
   pad
 
 (CLC.C.smelt %>% filter(is.na(CLC.C.smelt))) # 0 days missing
 
-MSD.C.salmon <- MSD.c %>%
+#run if daily data are ok
+# MSD.C.salmon <- MSD.c %>%
+#   group_by(date) %>% 
+#   mutate(msd.c = mean(parameter_value,na.rm =TRUE)) %>% 
+#   ungroup() %>%
+#   select(date, msd.c) %>% 
+#   distinct() %>% 
+#   drop_na() %>%
+#   pad() %>%
+#   arrange(date) 
+
+MSD.C.salmon <- MSD.f %>%
+  mutate(parameter_value_c = (parameter_value- 32)*(5/9)) %>%
   group_by(date) %>% 
-  mutate(msd.c = mean(parameter_value,na.rm =TRUE)) %>% 
+  mutate(msd.c = mean(parameter_value_c,na.rm =TRUE)) %>% 
   ungroup() %>%
   select(date, msd.c) %>% 
   distinct() %>% 
@@ -246,9 +266,21 @@ MSD.C.salmon <- MSD.c %>%
   pad() %>%
   arrange(date) 
 
-PPT.C.salmon <- PPT.c %>%
+# run if daily data are ok
+# PPT.C.salmon <- PPT.c %>%
+#   group_by(date) %>% 
+#   mutate(ppt.c = mean(parameter_value,na.rm =TRUE)) %>% 
+#   ungroup() %>%
+#   select(date, ppt.c) %>% 
+#   distinct() %>% 
+#   drop_na() %>%
+#   pad() %>%
+#   arrange(date) 
+
+PPT.C.salmon <- PPT.f %>%
+  mutate(parameter_value_c = (parameter_value- 32)*(5/9)) %>%
   group_by(date) %>% 
-  mutate(ppt.c = mean(parameter_value,na.rm =TRUE)) %>% 
+  mutate(ppt.c = mean(parameter_value_c,na.rm =TRUE)) %>% 
   ungroup() %>%
   select(date, ppt.c) %>% 
   distinct() %>% 
@@ -449,43 +481,48 @@ fflush <- plot_fpt1/plot_fpt2 # uses patchwork pkg to line up axes
 ggsave(fflush, file = here("EnvironmentalConditions/env_outputs", "first_flush_2026.png"), height = 4.1, width = 6.1)
 
 
-(plot_clc <- ggplot(offramp_env_params) + 
+# End of entrainmet management
+
+plot_clc <- offramp_env_params %>% 
+  filter(date >= "2026-06-01") %>% 
+    ggplot() + 
     geom_hline(yintercept = 25, linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, CLC.C.smelt)) +
-    geom_vline(xintercept = as.Date(c("2025-06-28", "2025-06-29", "2025-06-30")), 
+    geom_vline(xintercept = as.Date(c("2026-06-13", "2026-06-14", "2026-06-15")), 
                color= "red", linewidth= 2, alpha=0.3)+
-    labs(y = "CLC Temp. (°C)", title = "C") +
+    labs(y = "CLC Temp. (°C)", title = "A") +
     theme_bw() +
-    theme_plots)
+    theme_plots
 
-(plot_msd <- ggplot(offramp_env_params) + 
+plot_msd <- offramp_env_params %>% 
+  filter(date >= "2026-06-01") %>% 
+    ggplot() +
     geom_hline(yintercept = 22.2, linewidth = 1, linetype = "dashed", color = "gray70") +
-    geom_line(aes(date, offramp_env_params$msd.c)) +
-    geom_vline(xintercept = as.Date(c("2025-06-18", "2025-06-25", "2025-06-26", 
-                                      "2025-06-28", "2025-06-29", "2025-06-30")), 
+    geom_line(aes(date, msd.c)) +
+    geom_vline(xintercept = as.Date(c("2026-06-14", "2026-06-15", "2026-06-16", 
+                                      "2026-06-17", "2026-06-22", "2026-06-23", "2026-06-24")), 
                color= "red", linewidth= 2, alpha=0.3)+
-    labs(y = "MSD Temp. (°C)", title = "A") +
+    labs(y = "MSD Temp. (°C)", title = "C") +
     theme_bw() +
-    theme_plots)
+    theme_plots
 
-(plot_ppt <- ggplot(offramp_env_params) + 
+plot_ppt <- offramp_env_params %>% 
+  filter(date >= "2026-06-01") %>% 
+    ggplot() +
     geom_hline(yintercept = 22.2, linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, ppt.c)) +
-    geom_vline(xintercept = as.Date(c("2025-06-01", "2025-06-02", "2025-06-03",
-                                      "2025-06-04", "2025-06-05", "2025-06-14",
-                                      "2025-06-15")), 
+    geom_vline(xintercept = as.Date(c("2026-06-05", "2026-06-06", "2026-06-07",
+                                      "2026-06-08", "2026-06-09", "2026-06-10",
+                                      "2026-06-11")), 
                color= "red", linewidth= 2, alpha=0.3)+
     labs(y = "PPT Temp. (°C)", title = "B") +
     theme_bw() +
-    theme_plots)
+    theme_plots
 
 
-gA <- ggplotGrob(plot_msd)
-gB <- ggplotGrob(plot_ppt)
-gC <- ggplotGrob(plot_clc)
-grid::grid.newpage()
-grid::grid.draw(rbind(gA, gB,gC)) # use this method so Y axis lines up
-#(plot_offramp <- plot_msd/plot_ppt/plot_clc)
+plot_offramp <- plot_clc/plot_ppt/plot_msd
+ggsave(plot_offramp, file = here("EnvironmentalConditions/env_outputs", "temp_offramp_2026.png"), height = 5.3
+       , width = 6.3)
 
 
 # Larval/juvenile delta smelt action
@@ -531,8 +568,8 @@ plot_larjuv_ds <- sd.sd.fig/sd.turb.fig/jpf_fig
 ggsave(plot_larjuv_ds, file = here("EnvironmentalConditions/env_outputs", "larjuv_ds_2026.png"), height = 4.9
        , width = 6.1)
 
-sd.turb %>% 
-  filter()
+# sd.turb %>% 
+#   filter()
 
 
 # Write plots------------------------------------------

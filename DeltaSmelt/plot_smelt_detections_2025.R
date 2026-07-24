@@ -28,14 +28,15 @@ sta_all_sf <- sta_all %>%
   st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326) %>%
   st_transform(crs = st_crs(WW_Delta))
 
-release_info <- read_excel("DeltaSmelt/data/Releases_2025.xlsx") %>%
-  clean_names(case = "upper_camel")
-
-releases_sf <- release_info %>%
-  mutate(Latitude = as.numeric(Latitude),
-         Longitude = as.numeric(Longitude)) %>%
-  st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326) %>%
-  st_transform(crs = st_crs(WW_Delta))
+# No tagged fish in releases
+# release_info <- read_excel("DeltaSmelt/data/Releases_2025.xlsx") %>%
+#   clean_names(case = "upper_camel")
+# 
+# releases_sf <- release_info %>%
+#   mutate(Latitude = as.numeric(Latitude),
+#          Longitude = as.numeric(Longitude)) %>%
+#   st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326) %>%
+#   st_transform(crs = st_crs(WW_Delta))
 
 ## Read in fish data ----------------------------------------------
 

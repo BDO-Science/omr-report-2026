@@ -1,7 +1,10 @@
+### WY 26 updated by Lillian McCormick
+# lmccormick@usbr.gov
+
 library(tidyverse)
 library(readxl)
 
-data_import <- read_excel('ControllingFactors/CVP Delta OPS.xlsx', skip = 1) %>%
+data_import <- read_excel('ControllingFactors/CVP Delta OPS_WY26.xlsx', skip = 1) %>%
   select(date = 1, status = 2, JPP = 4, CCF = 6, DCC = 5,
          omr_usgs_1 = 7, omr_usgs_5 = 8, omr_usgs_14 = 9,
          omr_1 = 10, omr_5 = 11, omr_7 = 12, omr_14 = 13) %>%
@@ -10,12 +13,13 @@ data_import <- read_excel('ControllingFactors/CVP Delta OPS.xlsx', skip = 1) %>%
 
 dcc_temp <- select(data_import, 1,5) %>%
   filter(DCC == 'O',
-         date < as.Date('2025-07-01') &
-           date > as.Date('2024-09-30')) %>%
+         date < as.Date('2026-07-01') &
+           date > as.Date('2025-09-30')) %>%
   mutate(Factor = 'DCC Gate Open') %>%
   select(3,Date = 1)
 
-controlling <- read_csv('ControllingFactors/controlling-factors_WY2025.csv') %>%
+controlling <- read_csv('ControllingFactors/controlling-factors_WY2026.csv') %>%
+  select(1,2) %>% 
   mutate(Date = mdy(Date)) %>%
   bind_rows(dcc_temp) %>%
   na.omit()

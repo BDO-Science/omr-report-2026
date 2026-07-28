@@ -16,6 +16,7 @@ library(readr)
 library(readxl)
 library(gridExtra)
 library(janitor)
+library(slider) # for wy26
 #library(deltafish)
 library(here)
 
@@ -32,49 +33,42 @@ start <- paste0(py,"-10-01")
 end <- "2026-06-24"
 
 
-#####################################
-## QWEST DATA
-#qwest data-- will do qwest once we receive data file 
+########################################
+## JPF  and Qwest Data
 
+# for normal WY, JPF already calculated and in SacPAS
+env26 <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_deltasmelt_enviro.csv") %>% 
+  clean_names() %>% 
+  mutate(date = ymd(date)) %>% 
+  filter(date <= end)
+
+# Qwest
+qwest <- env26 %>% 
+  select(date, qwest_cfs, qwest_7_day_cfs)
+# Old method, from excel file
 #qwest0 <- read_excel(here::here("ControllingFactors", "Controlling Factors Table WY 2023.xlsx"), sheet = "OCOD Data 2023")
 #qwest <- qwest0 %>%
 #dplyr::select(Date, QWESTcfs) %>%
 #mutate(Date = ymd(Date))
 
-#qwest0 <- read_excel("C:/My Projects/SMT/OMR seasonal report/Controlling Factors Table WY 2034.xlsx", 
-#sheet = "OCOD Data 2023")
-
-qwest0 <- read_excel("2025-OMR-report.xlsx", 
-                     sheet = "Sheet1")
-
-
-qwest <- qwest0 %>%
-  select(Date, QWESTcfs) %>%
-  mutate(Date = ymd(Date))
-#qwest <- qwest0 %>%
-#select(Date, QWESTcfs) %>%
-#mutate(Date = ymd(Date))
-
-########################################
-## JPF Data
-
-env26 <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_deltasmelt_enviro.csv")
-
-jpf <- env26 %>% 
-  clean_names() %>%
-  select(date, jpf_cfs) %>% 
-  mutate(date = ymd(date)) %>% 
-  filter(date <= end)
-
-
+# JPF
+jpf_all <- env26_final %>% 
+  select(date, jpf_cfs, jpf_calc, jpf_key)
 # Read in JPF historical data - other alternative from SacPAS
 # jpf_all <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_JPF.csv") %>% 
 #   clean_names() %>%
 #   mutate(date = ymd(date)) %>% 
 #   filter(date <= end)
 
+#######################################################################
 # JUST FOR WY26 (JPF only began calculating/adding to SacPAS in Dec)
 # back-calculate JPF from start of WY
+
+# pull in historic hydrologic conditions
+hydro_wy26 <- read_csv('EnvironmentalConditions/hydro_cond_early_WY26.csv') %>% 
+  clean_names()
+
+
 # pull in DCC gate status 
 dcc <- read_excel('ControllingFactors/CVP Delta OPS_WY26.xlsx', skip = 1) %>%
   select(date = 1, DCC = 5) %>%
@@ -82,8 +76,55 @@ dcc <- read_excel('ControllingFactors/CVP Delta OPS_WY26.xlsx', skip = 1) %>%
   filter(!is.na(date)) %>% 
   filter(date > as.Date('2025-09-30'))
 
-# bind with JPF data
-jpf_all <- left_join(jpf, dcc, by= "date")
+# bind with hydrologic data
+jpf_all <- left_join(hydro_wy26, dcc, by= "date")
+
+
+# Calc historic JPF for missing dates, using DCC gate status
+#Both gates closed; flow only through Georgiana Slough
+#QXGEO = 0.133 (QSAC) +829
+#One gate open plus flow through Georgiana Slough
+#QXGEO = 0.216 (QSAC) + 2660
+#Both gates open plus flow through Georgiana Slough
+#QXGEO = 0.293 (QSAC) + 2090
+
+#set up variables
+jpf_calc <- jpf_all %>%
+  mutate(
+    QXGEO = (if_else(jpf_all$DCC == "O", (0.293*(sr_at_freeport_srwtp) + 2090),
+                     ((0.133 * sr_at_freeport_srwtp) + 829))),
+    #QXGEO = ((0.133 * SR_at_Freeport_SRWTP) + 829), when gates are closed
+    #Delta_precip = Stockton_rain_in / 12/ 5 * 682230 * 0.5041666604 *0.65,
+    Delta_precip = (stockton_rain_in * 679000 ) / ( 12 * 1.9835 *5),
+    Delta_prec5d = slide_dbl(Delta_precip, ~sum(.x), .before = 5, .after = -1,
+                             .complete= TRUE),
+    Delta_div = delta_gcd_cfs, 
+    pumps = ccf_cfs + tracy_cfs #updated to use CCF- Bogdan M-G says a better gauge for what the pump is taking
+  )
+
+#calc JPF
+
+jpf_calc <- jpf_calc %>%
+  arrange(date) %>% 
+  mutate(jpf_calc =
+           lag(sjr_a_vernalis) + # one day lagged
+           lag(e_side_streams) + # one day lagged
+           lag(QXGEO) - # one day lagged
+           (0.65* (lag(Delta_div) - Delta_prec5d)) - #Delta div one day lagged
+           pumps) # same day
+
+jpf_calc_final <- jpf_calc %>% 
+  select(date, jpf_calc)
+
+
+# combine with environmental data
+env26_final <- left_join(env26, jpf_calc_final, by= "date")
+env26_final$jpf_calc[75:267] <- env26_final$jpf_cfs[75:267]
+
+# define calculated vs. official
+env26_final$jpf_key <- NA
+env26_final$jpf_key[1:74] <- "calc"
+env26_final$jpf_key[74:267] <- "official"
 
 
 
@@ -199,8 +240,9 @@ sd.turb <-read.table(here("EnvironmentalConditions", "sd_turb_2026.txt"), header
 #### Clean up data and make sure not too many dates missing -------------------------------
 
 JPF.cfs.smelt <- jpf_all %>% 
-  select(date, jpf_cfs) %>% 
-  rename(JPF.cfs.smelt= jpf_cfs)
+  select(date, jpf_calc, jpf_key) %>% 
+  rename(JPF.cfs.smelt= jpf_calc,
+         JPF.key.smelt= jpf_key)
 
 OBI.fnu.smelt <- OBI.fnu %>%
   select(date, parameter_value) %>% rename(OBI.fnu.smelt = parameter_value) %>%
@@ -350,17 +392,9 @@ offramp_env_params <- reduce(list(CLC.C.smelt, MSD.C.salmon, PPT.C.salmon), dply
 theme_plots <- theme(axis.title.x = element_blank(),
                      axis.text = element_text(size = 11),
                      axis.title = element_text(size = 12))
-#uncomment once qwest data is received 
-# (plot_qwest <- ggplot(qwest) +
-#     geom_hline(yintercept = 0,  linewidth = 1, linetype = "dashed", color = "gray70") +
-#     geom_line(aes(Date, QWESTcfs), linewidth= 0.7) +
-#     scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-#     theme_plots +
-#     labs(y = "QWEST (cfs)", x= "Date (WY25)") +
-#     scale_y_continuous(limits= c(-10000, 20000), breaks= c(-10000, -5000, 0, 5000, 10000, 15000, 20000))+
-#     theme_bw())
 
 
+# single plots- NOT USED IN WY26
 (plot_obi <- ggplot(smelt_env_params) + 
     geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, smelt_env_params$OBI.fnu.smelt), size=0.6) +
@@ -397,7 +431,7 @@ theme_plots <- theme(axis.title.x = element_blank(),
     theme_bw() +
     theme_plots)
 
-### test plot of all turbdiity combined
+### test plot of all turbidity combined
 alt.turb <- ggplot(fnu.comb) + 
   geom_hline(yintercept = 12,  linewidth = 1, linetype = "dashed", color = "gray70") +
   geom_line(aes(x= date, y= parameter_value, color = station), size= 0.9) +
@@ -426,10 +460,25 @@ alt.turb <- ggplot(fnu.comb) +
   ggtitle("A")+
   theme_plots
 
-plot_jpf <- smelt_env_params %>% 
+# for normal years with JPF
+# plot_jpf <- smelt_env_params %>% 
+#   #filter(date >="2025-12-29", date <= "2026-06-09") %>% 
+#   ggplot(aes(x= date, y= JPF.cfs.smelt))+
+#   geom_line(size=0.9)+
+#   geom_hline(yintercept = 0, linewidth = 1, linetype = "dashed", color = "gray70") +
+#   # geom_vline(xintercept = as.Date("2026-02-13"),
+#   #            color= "red", linewidth= 1, alpha=0.3)+
+#   scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+#   ylab("JPF (cfs)")+
+#   ggtitle("B")+
+#   theme_bw() +
+#   theme_plots
+
+plot_jpf <- env26_final %>% 
+  mutate(jpf_key = factor(jpf_key, levels = c('official', 'calc'))) %>%
   #filter(date >="2025-12-29", date <= "2026-06-09") %>% 
-  ggplot(aes(x= date, y= JPF.cfs.smelt))+
-  geom_line(size=0.9)+
+  ggplot(aes(x= date, y= jpf_calc))+
+  geom_line(aes(linetype= jpf_key), size=0.9)+
   geom_hline(yintercept = 0, linewidth = 1, linetype = "dashed", color = "gray70") +
   # geom_vline(xintercept = as.Date("2026-02-13"),
   #            color= "red", linewidth= 1, alpha=0.3)+
@@ -437,6 +486,7 @@ plot_jpf <- smelt_env_params %>%
   ylab("JPF (cfs)")+
   ggtitle("B")+
   theme_bw() +
+  theme(legend.position = "none")+
   theme_plots
 
 (plot_temp <- ggplot(smelt_env_params) + 
@@ -504,7 +554,26 @@ fflush <- plot_fpt1/plot_fpt2 # uses patchwork pkg to line up axes
 ggsave(fflush, file = here("EnvironmentalConditions/env_outputs", "first_flush_2026.png"), height = 4.1, width = 6.1)
 
 
-# End of entrainmet management
+
+
+(plot_qwest <- ggplot(qwest) +
+    geom_hline(yintercept = 0,  linewidth = 1, linetype = "dashed", color = "gray70") +
+    geom_line(aes(date, qwest_7_day_cfs), linewidth= 0.7) +
+    scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+    ggtitle("A")+
+    labs(y = "QWEST (cfs)") +
+   #scale_y_continuous(limits= c(-10000, 20000), breaks= c(-10000, -5000, 0, 5000, 10000, 15000, 20000))+
+    theme_bw()+
+    theme_plots)
+
+# need to have already run plot_jpf above
+plot_qwest_jpf <- plot_qwest/plot_jpf
+ggsave(plot_qwest_jpf, file = here("EnvironmentalConditions/env_outputs", "qwest_jpf_2026.png"), height = 4.1, width = 6.1)
+
+
+
+
+# End of entrainment management
 
 plot_clc <- offramp_env_params %>% 
   filter(date >= "2026-06-01") %>% 

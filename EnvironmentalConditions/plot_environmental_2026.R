@@ -58,21 +58,44 @@ qwest <- qwest0 %>%
 ########################################
 ## JPF Data
 
-# Read in JPF historical data
-jpf_all <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_JPF.csv") %>% 
+env26 <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_deltasmelt_enviro.csv")
+
+jpf <- env26 %>% 
   clean_names() %>%
+  select(date, jpf_cfs) %>% 
   mutate(date = ymd(date)) %>% 
   filter(date <= end)
 
 
-# sets the dates to be pulled from cdec for the OMR season
+# Read in JPF historical data - other alternative from SacPAS
+# jpf_all <- read_csv("https://www.cbr.washington.edu/sacramento/data/generated/WY2026_JPF.csv") %>% 
+#   clean_names() %>%
+#   mutate(date = ymd(date)) %>% 
+#   filter(date <= end)
 
-start.date <- start
-end.date <- end
+# JUST FOR WY26 (JPF only began calculating/adding to SacPAS in Dec)
+# back-calculate JPF from start of WY
+# pull in DCC gate status 
+dcc <- read_excel('ControllingFactors/CVP Delta OPS_WY26.xlsx', skip = 1) %>%
+  select(date = 1, DCC = 5) %>%
+  mutate(date = ymd(date)) %>%
+  filter(!is.na(date)) %>% 
+  filter(date > as.Date('2025-09-30'))
+
+# bind with JPF data
+jpf_all <- left_join(jpf, dcc, by= "date")
+
+
+
+
 
 #######################################################
 # DATA DOWNLOAD
 # Series of cdec queries to pull data needed to fill out the reports datafile ------------
+# sets the dates to be pulled from cdec for the OMR season
+
+start.date <- start
+end.date <- end
 
 # Adult DS entrainment action and temp offramp
 

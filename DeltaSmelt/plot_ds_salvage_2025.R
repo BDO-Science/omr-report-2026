@@ -12,8 +12,6 @@ library(readxl)
 
 ## Salvage data --------------------
 # reading from SacPAS which is connected to the Salvage database 
-# Will need to change the read to 2026 once salvage starts. 
-# Get the new link here (probably just change 2025 to 2026 below): https://www.cbr.washington.edu/sacramento/data/query_loss_detail.html
 # Salvage lat/lon
 sta_salvage <- data.frame(station = c("CVP", "SWP"),
                           latitude = c(37.815176,37.82524),

@@ -18,12 +18,12 @@ data_import <- read_excel('ControllingFactors/CVP Delta OPS_WY26.xlsx', skip = 1
          omr_1 = 10, omr_5 = 11, omr_7 = 12, omr_14 = 13) %>%
   mutate(date = ymd(date)) %>%
   filter(!is.na(date)) %>% 
-  filter(date > as.Date('2025-09-30'))
+  filter(date > as.Date('2025-09-01'))
 
 dcc_temp <- select(data_import, 1,5) %>%
   filter(DCC == 'O',
          date < as.Date('2026-07-19') &
-           date > as.Date('2025-09-30')) %>%
+           date > as.Date('2025-09-01')) %>%
   mutate(Factor = 'DCC Gate Open') %>%
   select(3,Date = 1)
 

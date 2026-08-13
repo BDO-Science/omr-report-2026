@@ -16,6 +16,7 @@ library(CDECRetrieve)
 library(patchwork)
 library(janitor)
 library(here)
+library(readxl)
 
 #data loaded from SacPAS or provided by Reclamation CVO and DWR
 
@@ -29,7 +30,7 @@ end <- "2026-06-24"
 
 ###################################################
 #automating the reading in of relevant data files
-library(readxl)
+
 
 data_import <- read_excel(here("Operations/data","CVP Delta OPS_WY26.xlsx"), skip = 1) %>%
   select(date = 1, status = 2, JPP = 4, CCF = 6, DCC = 5,
@@ -37,7 +38,7 @@ data_import <- read_excel(here("Operations/data","CVP Delta OPS_WY26.xlsx"), ski
          omr_1 = 10, omr_5 = 11, omr_7 = 12, omr_14 = 13) %>%
   mutate(date = ymd(date)) %>%
   filter(!is.na(date),
-         date <= as.Date('2026-06-24'), date >= as.Date('2025-10-01')) %>%
+         date <= as.Date('2026-06-30'), date >= as.Date('2025-10-01')) %>%
   mutate(across(6:12, as.numeric))
 
 
@@ -201,21 +202,22 @@ all_index <- bind_rows(seine_import, trawl_import, kl_import) %>%
   mutate(sample = factor(sample, levels = c('KL RST', 'Seines', 'Trawls'),
                          labels = c('Knights Landing RST', 'Sacramento Seines', 'Sacramento Trawls')))
 
+
 dcc_graph <- data_import %>%
   ggplot() +
   geom_rect(aes(xmin = date, xmax = date + 1, ymin = -Inf, ymax = Inf, fill = DCC)) +
   scale_fill_manual(
-    values = c('O' = 'darkgrey'),  # Only include 'C'
-    labels = c('O' = 'Opened'),    # Only label 'C'
+    values = c('O' = 'darkgrey'),  # Only include 'O'
+    labels = c('O' = 'Opened'),    # Only label 'O'
     na.value = "transparent",
     drop = TRUE                   # Drop unused levels
   ) +
   geom_point(all_index, mapping = aes(x = Date, y = index, color = sample), size = 1) +
   labs(y = 'Catch Index', fill = 'DCC Gate Status') +
   scale_x_date(
-    date_breaks = '4 weeks', 
-    date_labels = '%b', 
-    limits = c(as.Date('2025-10-01'), as.Date('2026-06-30'))
+    date_breaks = '1 month',
+    date_labels = '%b',
+    limits = c(as.Date('2025-09-15'), as.Date('2026-07-01'))
   ) +
   scale_color_manual(values = c('#0072B2', '#E69F00', '#009E73')) +
   facet_wrap(~sample, ncol = 1) +
@@ -224,6 +226,7 @@ dcc_graph <- data_import %>%
   theme(legend.position = 'bottom',
         strip.background = element_rect(fill = NA),
         strip.text = element_text(face = 'bold'))
+
 dcc_graph
 ggsave(dcc_graph, file = 'Operations/outputs/dcc_gates.png', height = 4, width = 6)
 

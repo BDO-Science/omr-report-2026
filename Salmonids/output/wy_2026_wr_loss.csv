@@ -3579,7 +3579,11 @@
 "2026-06-08 22:00:00","CVP","Chinook Salmon","Unclipped","Fall","Fall",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,30,120,0.25,"Normal count",97,1,4,2.76,"C261146CVP",0.986,1989487,-2882
 "Notes:",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "Loss and Salvage Detail",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+<<<<<<< HEAD
 "Generated 19 Aug 2026 08:28:23 PDT.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+=======
+"Generated 13 Aug 2026 15:08:54 PDT.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+>>>>>>> a3b11907a4b95ecf33296f42fc95d8027e18ed2d
 "Data Courtesy of California Department of Fish and Wildlife.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "<a href='/sacramento/data/metadata/metadata_salvageloss.html'>Salvage and Loss at Delta Fish Facilities Metadata</a>",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "Data column availability is linked to species, adipose fin clip status, and water year.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

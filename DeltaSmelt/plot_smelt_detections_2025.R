@@ -152,19 +152,64 @@ mark <- allsmelt%>%
 
 # Releases
 
+#### NO TAGGED FISH IN WY 2026 SEE MAP BELOW
+# adult_releases <- adult_mark%>%
+#   mutate(Release_Event = Release) %>%
+#   mutate(Release_Event = if_else(Release_Event=="NANA", "Not tagged", Release_Event)) %>%
+#   mutate(Release_Event = as.factor(Release_Event),
+#          Release_Event = fct_shift(Release_Event, 4),
+#          Release_Event = fct_relevel(Release_Event, "Not tagged", after =Inf))
+#        
+# (map_detections <- ggplot() + 
+#     geom_sf(data = WW_Delta, color = "gray60", fill = "gray90", alpha = 0.5) +
+#     geom_sf(data = releases_sf, shape = 9, size =6, color = "red",  inherit.aes = FALSE) + 
+#     geom_sf(data = adult_releases, aes(fill = Release_Event), shape = 21, size = 3.5, alpha = 0.75, color = "black", inherit.aes = FALSE) + 
+#     annotate(geom = "text", y = 38.16956, x = -121.76,  label = " Rio Vista (RV)\n Release", size = 4.25) +
+#     annotate(geom = "text", y = 38.34, x = -121.78,  label = "Lookout Slough (LS)\n Release", size = 4.25)+
+#     # geom_sf_text(data = releases_sf, label = "Release site", size = 4.5, nudge_x = -0.016, nudge_y = 0.02) +
+#     annotation_north_arrow(location = "tl", which_north = "true",
+#                            pad_x = unit(.1, "in"), pad_y = unit(0.2, "in"),
+#                            style = north_arrow_fancy_orienteering) +
+#     annotation_scale(location = "bl", bar_cols = c("black", "white", "black", "white")) +
+#     scale_fill_manual(values = c(viridis(7, option = "turbo"), "gray50")) + 
+#     viridis::scale_color_viridis(option = "turbo", discrete = TRUE) +
+#     # scale_shape_manual(values = c(21, 9)) +
+#     scale_size_manual(values = c(3, 6)) +
+#     scale_x_continuous(limits = c(-122.2, -121.4)) + 
+#     scale_y_continuous(limits = c(37.8, 38.4)) +
+#     # guides(fill = guide_legend(nrow = 2, byrow = TRUE)) +
+#     theme_bw() +
+#     theme(axis.title.x = element_blank(),
+#           axis.title.y = element_blank(),
+#           axis.text = element_text(size = 12),
+#           axis.text.x = element_text(angle = 45, vjust = 0.5),
+#           legend.position = "top", legend.title = element_blank(),
+#           legend.text = element_text(size = 11)))
+
+## Change map to locations of releases
+
+# Create release locations
+release_loc <- read_csv("DeltaSmelt/data/release_locs_2026.csv")
+release_sf <- release_loc %>%
+  #filter(!is.na(Latitude)) %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
+  st_transform(crs = st_crs(WW_Delta))
+
+
 adult_releases <- adult_mark%>%
   mutate(Release_Event = Release) %>%
   mutate(Release_Event = if_else(Release_Event=="NANA", "Not tagged", Release_Event)) %>%
   mutate(Release_Event = as.factor(Release_Event),
          Release_Event = fct_shift(Release_Event, 4),
          Release_Event = fct_relevel(Release_Event, "Not tagged", after =Inf))
-       
+
 (map_detections <- ggplot() + 
     geom_sf(data = WW_Delta, color = "gray60", fill = "gray90", alpha = 0.5) +
-    geom_sf(data = releases_sf, shape = 9, size =6, color = "red",  inherit.aes = FALSE) + 
-    geom_sf(data = adult_releases, aes(fill = Release_Event), shape = 21, size = 3.5, alpha = 0.75, color = "black", inherit.aes = FALSE) + 
-    annotate(geom = "text", y = 38.16956, x = -121.76,  label = " Rio Vista (RV)\n Release", size = 4.25) +
-    annotate(geom = "text", y = 38.34, x = -121.78,  label = "Lookout Slough (LS)\n Release", size = 4.25)+
+    #geom_sf(data = releases_sf, shape = 9, size =6, color = "red",  inherit.aes = FALSE) + 
+    geom_sf(data = release_sf, aes(fill = location), shape = 21, size = 4.5, alpha = 0.75, color = "black", inherit.aes = FALSE) + 
+    #annotate(geom = "text", y = 38.2, x = -121.72,  label = "Rio Vista", size = 4.25) +
+    #annotate(geom = "text", y = 38.1, x = -121.8,  label = "Sherman Island", size = 4.25)+
+    #annotate(geom = "text", y = 38.25, x = -122,  label = "Belden's Landing", size = 4.25)+
     # geom_sf_text(data = releases_sf, label = "Release site", size = 4.5, nudge_x = -0.016, nudge_y = 0.02) +
     annotation_north_arrow(location = "tl", which_north = "true",
                            pad_x = unit(.1, "in"), pad_y = unit(0.2, "in"),
@@ -194,7 +239,7 @@ tiff("DeltaSmelt/output/Figure_map_ljuvDS.tiff", width = 7.8, height = 7.5, unit
 map_detections_lj
 dev.off()
 
-tiff("DeltaSmelt/output/Figure_map_releases.tiff", width = 8.5, height = 8.5, units = "in", res = 300, compression = "lzw")
+tiff("DeltaSmelt/output/Figure_map_release_loc.tiff", width = 8.5, height = 8.5, units = "in", res = 300, compression = "lzw")
 map_detections
 dev.off()
 

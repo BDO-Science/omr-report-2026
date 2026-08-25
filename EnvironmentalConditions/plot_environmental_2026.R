@@ -522,7 +522,6 @@ plot_jpf <- env26_final %>%
 turb_bridge <- grid.arrange(plot_obi, plot_hol, plot_osj, plot_temp, ncol=1)
 ggsave(turb_bridge, file = here("EnvironmentalConditions/env_outputs", "ds_adult_turb_2026.png"), height = 6.2, width = 6.3)
 
-turb_bridge_alt <- alt.turb/plot_jpf/plot_temp
 ggsave(turb_bridge_alt, file = here("EnvironmentalConditions/env_outputs", "ds_adult_turb_2026_2.png"), height = 6.2, width = 6.5)
 
 

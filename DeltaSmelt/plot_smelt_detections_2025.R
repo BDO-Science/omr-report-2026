@@ -9,6 +9,7 @@ library(lubridate)
 library(viridis)
 library(janitor)
 library(forcats)
+library(here)
 
 # Maps ------------------
 # TFCF: 37.815176 -121.560709 (WGS84)
@@ -39,6 +40,9 @@ sta_all_sf <- sta_all %>%
 #   st_transform(crs = st_crs(WW_Delta))
 
 ## Read in fish data ----------------------------------------------
+
+# Adult and juvenile data
+data_ds <- read.csv(here("DeltaSmelt/data/ds_detail_wy26.csv"))
 
 # Juvenile EDSM 
 data_edsmJ <- read_excel(here::here("DeltaSmelt/data/EDSM_LarJuv_2025.xlsx"))

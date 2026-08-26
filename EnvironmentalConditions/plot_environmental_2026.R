@@ -556,7 +556,7 @@ ggsave(fflush, file = here("EnvironmentalConditions/env_outputs", "first_flush_2
 
 
 (plot_qwest <- ggplot(qwest) +
-    geom_hline(yintercept = 0,  linewidth = 1, linetype = "dashed", color = "gray70") +
+    geom_hline(yintercept = 1500,  linewidth = 1, linetype = "dashed", color = "gray70") +
     geom_line(aes(date, qwest_7_day_cfs), linewidth= 0.7) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b") +
     ggtitle("A")+

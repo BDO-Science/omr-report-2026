@@ -23,6 +23,17 @@ wr_loss <- read_csv(wrurl) %>%
 write.csv(wr_loss, 'Salmonids/output/wy_2026_wr_loss.csv', row.names = FALSE) #saving to include in data appendix
 
 
+# 2026 loss all runs
+loss_all <- read_csv('https://www.cbr.washington.edu/sacramento/data/php/rpt/juv_loss_detail.php?sc=1&outputFormat=csv&year=all&species=1%3Aall&dnaOnly=no&age=no') %>%
+  clean_names() %>% 
+  filter(sample_time >= as.Date("2025-10-01"), sample_time < as.Date("2026-07-01"),
+         !is.na(dna_sample_id)) %>% 
+  select(CVTA_ID = dna_sample_id, SampleDateTime= sample_time, ForkLength = length, 
+         LAD_Race = lad_race, Genetic_Assignment = dna_race, Prob_Assignment = genetic_probability, 
+         Facility = facility)
+write.csv(loss_all, 'Salmonids/output/loss_genetics_2026_appendix.csv', row.names = FALSE)
+
+
 
 #pull in and summarize steelhead loss data
 shurl <- paste0('https://www.cbr.washington.edu/sacramento/data/php/rpt/juv_loss_detail.php?sc=1&outputFormat=csv&year='

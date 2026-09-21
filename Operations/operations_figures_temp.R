@@ -38,7 +38,7 @@ data_import <- read_excel(here("Operations/data","CVP Delta OPS_WY26.xlsx"), ski
          omr_1 = 10, omr_5 = 11, omr_7 = 12, omr_14 = 13) %>%
   mutate(date = ymd(date)) %>%
   filter(!is.na(date),
-         date <= as.Date('2026-06-30'), date >= as.Date('2025-10-01')) %>%
+         date <= as.Date('2026-06-30'), date >= as.Date('2025-09-01')) %>%
   mutate(across(6:12, as.numeric))
 
 
@@ -217,7 +217,8 @@ dcc_graph <- data_import %>%
   scale_x_date(
     date_breaks = '1 month',
     date_labels = '%b',
-    limits = c(as.Date('2025-09-15'), as.Date('2026-07-01'))
+    limits = c(as.Date('2025-09-01'), as.Date('2026-07-01')),
+    expand = c(0,0)
   ) +
   scale_color_manual(values = c('#0072B2', '#E69F00', '#009E73')) +
   facet_wrap(~sample, ncol = 1) +

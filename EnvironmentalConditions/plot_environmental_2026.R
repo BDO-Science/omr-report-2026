@@ -126,7 +126,7 @@ env26_final$jpf_key <- NA
 env26_final$jpf_key[1:74] <- "calc"
 env26_final$jpf_key[74:267] <- "official"
 
-
+write_csv(env26_final, here("EnvironmentalConditions/env_outputs/Environmental_WY26_final.csv"))
 
 
 

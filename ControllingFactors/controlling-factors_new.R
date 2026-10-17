@@ -14,11 +14,12 @@ end <- "2026-06-24"
 
 data_import <- read_excel('ControllingFactors/CVP Delta OPS_WY26.xlsx', skip = 1) %>%
   select(date = 1, status = 2, JPP = 4, CCF = 6, DCC = 5,
-         omr_usgs_1 = 7, omr_usgs_5 = 8, omr_usgs_14 = 9,
+         omr_usgs_1 = as.numeric(7), omr_usgs_5 = 8, omr_usgs_14 = 9,
          omr_1 = 10, omr_5 = 11, omr_7 = 12, omr_14 = 13) %>%
   mutate(date = ymd(date)) %>%
   filter(!is.na(date)) %>% 
-  filter(date > as.Date('2025-09-01'))
+  filter(date > as.Date('2025-09-01')) %>% 
+  mutate(across(6:12, as.numeric)) # added because negative numbers create character strings
 
 dcc_temp <- select(data_import, 1,5) %>%
   filter(DCC == 'O',

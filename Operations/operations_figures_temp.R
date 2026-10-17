@@ -45,30 +45,34 @@ data_import <- read_excel(here("Operations/data","CVP Delta OPS_WY26.xlsx"), ski
 #################################
 #Read in OMRI from SacPAS -use if no operator data yet
 #################################
-url_omr <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=Delta&year%5B%5D=",wy,"&loc%5B%5D=DTO&data%5B%5D=OMRIndex&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
-url_omr5D <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",wy,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex5Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
-url_omr14D <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",wy,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex14Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
-url_omr_prev <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=Delta&year%5B%5D=",py,"&loc%5B%5D=DTO&data%5B%5D=OMRIndex&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
-url_omr5D_prev <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",py,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex5Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
-url_omr14D_prev <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",py,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex14Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large") #url_omr14D <-
-omr <- bind_rows(read_csv(url_omr),
-                 read_csv(url_omr_prev)) %>%
-  mutate(measure = 'OMR')
-omr5D <- bind_rows(read_csv(url_omr5D),
-                   read_csv(url_omr5D_prev)) %>%
-  mutate(measure = "OMR5D")
-omr14D <- bind_rows(read_csv(url_omr14D),
-                    read_csv(url_omr14D_prev)) %>%
-  mutate(measure = "OMR14D")
-omr_clean <- bind_rows(omr, omr5D, omr14D) %>%
-  filter(!is.na(parameter)) %>%
-  mutate(date = ymd(paste0(year, "-", `mm-dd`))) %>%
-  filter(date < end, date >= start) %>%
-  mutate(measure = factor(measure, levels = c('OMR', 'OMR5D', 'OMR14D'),
-                          labels = c('OMR', 'OMR 5 day index', 'OMR 14 day index'))) %>%
-  arrange(date)
 
-data_import <- omr_clean
+### If operator exists, run data_import from controlling-factors_new.R
+
+
+# url_omr <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=Delta&year%5B%5D=",wy,"&loc%5B%5D=DTO&data%5B%5D=OMRIndex&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
+# url_omr5D <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",wy,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex5Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
+# url_omr14D <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",wy,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex14Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
+# url_omr_prev <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=Delta&year%5B%5D=",py,"&loc%5B%5D=DTO&data%5B%5D=OMRIndex&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
+# url_omr5D_prev <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",py,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex5Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large")
+# url_omr14D_prev <- paste0("https://www.cbr.washington.edu/sacramento/data/php/rpt/mg.php?sc=1&mgconfig=river&outputFormat=csvSingle&hafilter=All&year%5B%5D=",py,"&loc%5B%5D=KWK&data%5B%5D=OMRIndex14Day&tempUnit=F&startdate=1%2F1&enddate=12%2F31&avgyear=0&consolidate=1&grid=1&y1min=&y1max=&y2min=&y2max=&size=large") #url_omr14D <-
+# omr <- bind_rows(read_csv(url_omr),
+#                  read_csv(url_omr_prev)) %>%
+#   mutate(measure = 'OMR')
+# omr5D <- bind_rows(read_csv(url_omr5D),
+#                    read_csv(url_omr5D_prev)) %>%
+#   mutate(measure = "OMR5D")
+# omr14D <- bind_rows(read_csv(url_omr14D),
+#                     read_csv(url_omr14D_prev)) %>%
+#   mutate(measure = "OMR14D")
+# omr_clean <- bind_rows(omr, omr5D, omr14D) %>%
+#   filter(!is.na(parameter)) %>%
+#   mutate(date = ymd(paste0(year, "-", `mm-dd`))) %>%
+#   filter(date < end, date >= start) %>%
+#   mutate(measure = factor(measure, levels = c('OMR', 'OMR5D', 'OMR14D'),
+#                           labels = c('OMR', 'OMR 5 day index', 'OMR 14 day index'))) %>%
+#   arrange(date)
+
+#data_import <- omr_clean
 
 
 ####################################
@@ -138,6 +142,7 @@ omr1_plot <- data_import %>%
   geom_line(aes(y = omr_1)) +
   geom_hline(yintercept = -5000,  linewidth = 1, linetype = "dashed", color = "gray70") +
   labs(y = 'Daily OMR Index (cfs)') +
+  scale_x_date(date_breaks = '1 month', date_labels = '%b') +
   theme_bw() +
   theme(axis.title.x = element_blank(),
         axis.text.x = element_blank(),
@@ -157,7 +162,7 @@ export_plot <- data_import %>%
   labs(y = 'Exports (cfs)') +
   geom_col(aes(y = exports, fill = Facility)) +
   scale_fill_manual(values = c('#0072B2', '#E69F00')) +
-  scale_x_date(date_breaks = '4 weeks', date_labels = '%b') +
+  scale_x_date(date_breaks = '1 month', date_labels = '%b') +
   theme_bw() +
   theme(legend.position = 'bottom')
 export_plot

@@ -115,7 +115,7 @@ count <- filter(survey.sj, Catch > 0.0000000)
 unique(count$SurveyName)
 
 #filter to just those surveys and stations with non-zero catch to make the plot easier to view
-sj.catch <- filter(sj.catch, SurveyName %in% c("SLS 2", "SLS 3","SLS 4","SLS 5","SLS 6","20-mm 1", "20-mm 2", "20-mm 3"))
+sj.catch <- filter(survey.sj, SurveyName %in% c("SLS 2", "SLS 3","SLS 4","SLS 5","SLS 6","20-mm 1", "20-mm 2", "20-mm 3"))
 
 #plot catch by station
 stat <- ggplot(data=sj.catch, aes(x=SurveyName, y=Catch, fill=Station)) +

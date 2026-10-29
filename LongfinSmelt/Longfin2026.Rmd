@@ -85,6 +85,7 @@ month <-survey%>%
 
 unique(month$my)
 month$my<-factor(month$my, levels=c("12/25", "01/26", "02/26", "03/26","04/26","05/26", "06/26"))#force to recognize levels
+month$Gear <- factor(month$Gear, levels = c("SLS", "20-mm"))
 
 #plot
 ggplot(data=month, aes(x=my, y=Count, fill=Region)) +
@@ -116,6 +117,8 @@ unique(count$SurveyName)
 
 #filter to just those surveys and stations with non-zero catch to make the plot easier to view
 sj.catch <- filter(survey.sj, SurveyName %in% c("SLS 2", "SLS 3","SLS 4","SLS 5","SLS 6","20-mm 1", "20-mm 2", "20-mm 3"))
+sj.catch$SurveyName <- factor(sj.catch$SurveyName, levels = c("SLS 1", "SLS 2", "SLS 3","SLS 4","SLS 5","SLS 6","20-mm 1", "20-mm 2", "20-mm 3"))
+view(sj.catch)
 
 #plot catch by station
 stat <- ggplot(data=sj.catch, aes(x=SurveyName, y=Catch, fill=Station)) +
@@ -158,10 +161,9 @@ les$Year<-year(les$Date)
 les$Month<-month(les$Date)
 les$Study <- "LES"
 les$SurveyName <- paste(les$Study, les$Survey, sep = " ")
-les$CPUE <- les$TotalCatch/les$TowTotal
+les$CPUE <- les$TotalCatch/les$TotalTows
 les$my <- format(as.Date(les$Date, format="%Y/%m/%d"),"%m/%y")
 les$mo <- month.abb[les$Month]
-view(les)
 
 #filter to LFS collected during regular sampling for the desired year(s)
 unique(les$SpecialStudy) #see what values there are so as to exclude them
@@ -177,9 +179,9 @@ unique(les.2026$Month)
 
 #get total survey (i.e. weekly) catch for data checks/text updates
 monthly <-les.lfs %>% 
-  group_by(Year, my, mo, SurveyName, Survey) %>% 
+  group_by(Year, Month, my, mo, SurveyName, Survey) %>% 
   summarize("SurveyCatch"= sum(TotalCatch))
-write.csv(week, "LongfinSmelt/Data/WeeklyCatch.csv")
+write.csv(monthly, "LongfinSmelt/Data/WeeklyCatch.csv")
 str(monthly$Survey)
 monthly$Survey <- as.numeric(monthly$Survey)
 
